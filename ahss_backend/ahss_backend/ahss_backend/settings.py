@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Third Part Apps
+    # Third Party Apps
     'rest_framework',
     # 'rest_framework.authtoken',
     'corsheaders',
@@ -171,5 +171,6 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost',
     'http://localhost:3000',
-
+    'http://192.168.43.46:3000',
+    'http://192.168.43.46:8000',
 ]

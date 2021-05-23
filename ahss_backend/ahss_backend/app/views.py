@@ -53,3 +53,21 @@ class LogsListAPIView(generics.ListAPIView):
     serializer_class = LogsSerializer
 
     permission_classes = (permissions.IsAuthenticated,)
+
+
+def temperatureListView(request):
+    # TODO: generate different temperatures here : RPi
+    pass
+
+
+def humidityListView(request):
+    # TODO: generate different temperatures here : RPi
+    pass
+
+def infraredListView(request):
+    # TODO: generate different temperatures here : RPi
+    pass
+
+
+# TODO: RPi IP- 10.0.2.15
+# TODO: RPi Password: raspberry

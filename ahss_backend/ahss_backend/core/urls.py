@@ -9,4 +9,5 @@ router.register(r'', views.UserViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    # path('<int:pk>/', views.singleUserView),
 ]

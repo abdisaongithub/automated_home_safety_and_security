@@ -2,8 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.generics import UpdateAPIView
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import UpdateAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .models import User
@@ -14,6 +13,15 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (permissions.AllowAny,)
+
+
+class SingleUserView(RetrieveAPIView):
+    # queryser = User.objects.
+    pass
+
+
+def singleUserView(request, ):
+    return request.user
 
 
 class ObtainTokenView(TokenObtainPairView):

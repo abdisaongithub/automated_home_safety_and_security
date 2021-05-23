@@ -13,6 +13,7 @@ class Settings(models.Model):
 
 class Videos(models.Model):
     name = models.CharField(max_length=255)
+    video = models.CharField(max_length=255, default="/some/default/link/to/a/video/")
     date_time = models.DateTimeField()
     watched = models.BooleanField(default=False)
     # Attributes TODO: Find out what this is
@@ -26,7 +27,7 @@ class Notifications(models.Model):
     content = models.TextField()
     datetime = models.DateTimeField()
     seen = models.BooleanField()
-    link_to_video = models.CharField(max_length=255)
+    link_to_video = models.CharField(max_length=255, default=None, null=True)
 
     def __str__(self):
         return self.title
@@ -47,5 +48,4 @@ class Log(models.Model):
     # condition TODO: Find out what this is
 
     def __str__(self):
-        return self.event + '  ' + self.date_time
-
+        return self.event + ' @ ' + str(self.date_time)

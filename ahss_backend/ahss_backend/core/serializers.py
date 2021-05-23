@@ -4,6 +4,10 @@ from . import models
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
+class SingleUserSerializer(serializers.Serializer):
+    pass
+
+
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
         required=True
