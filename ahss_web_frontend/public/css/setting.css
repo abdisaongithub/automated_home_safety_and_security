@@ -1,0 +1,97 @@
+.setting{ 
+    background-color: rgb(27, 27, 27);
+    padding-left: 10px;
+    margin-bottom: 15px;
+    border: 3px solid #020202; 
+}
+
+.names{
+      float: left;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+.names li{
+    
+    list-style: none;
+    margin-bottom: 45px;
+}
+h2{
+    color: #009dff;
+}
+.power  { 
+    padding-left: 2%;
+    
+    margin-right: 15px;
+    margin-top: 1%;
+    margin-left: 70%;
+    
+}
+.gas{
+    
+    margin-bottom: 35px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: #009dff;
+    border: 2px solid black;
+    width: 80px;
+    border-radius: 20%;
+    height: 42px;
+}
+.gasswitch{
+    
+    border: 1px solid black;
+    border-radius: 50%;background-color: #000;
+    width: 40px;
+    height: 40px;
+}
+.fire{
+    margin-bottom: 35px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: #009dff;
+    border: 2px solid black;
+    width: 80px;
+    border-radius: 20%;
+    height: 42px;
+}
+.fireswitch{
+    border: 1px solid black;
+    border-radius: 50%;background-color: #000;
+    width: 40px;
+    height: 40px;
+}
+.smoke{
+    margin-bottom: 35px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: #009dff;
+    border: 2px solid black;
+    width: 80px;
+    border-radius: 20%;
+    height: 42px;
+}
+.smokeswitch{
+    border: 1px solid black;
+    border-radius: 50%;background-color: #000;
+    width: 40px;
+    height: 40px;
+}
+.motion{
+    margin-bottom: 35px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: #009dff;
+    border: 2px solid black;
+    width: 80px;
+    border-radius: 20%;
+    height: 42px;
+}
+.motionswitch{
+    border: 1px solid black;
+    border-radius: 50%;background-color: #000;
+    width: 40px;
+    height: 40px;
+   
+   
+}
+.onoff{ position: fixed;}
