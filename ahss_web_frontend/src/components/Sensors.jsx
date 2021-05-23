@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-// import TemperatureChart  from "./charts/TempratureChart";
+import SensorsSummary from './homeComponets/SensorsSummary'
 
-class Settings extends Component {
+class Sensors extends Component {
   render() {
     return (
-      <div>
-        {/* <TemperatureChart /> */}
-        <h1>Sensors Page!</h1>
+      <div className="mt-5 shadow-lg">
+        <SensorsSummary/>
       </div>
     );
   }
 }
 
-export default Settings;
+export default Sensors;
