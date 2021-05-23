@@ -13,7 +13,7 @@ urlpatterns = [
 
     path('settings/', SettingsListCreateAPIView.as_view(), name='app_settings_list'),
 
-    path('settings/update/<int:pk>/', SettingsUpdateAPIView.as_view(), name='app_settings_list'),
+    path('settings/update/', SettingsUpdateAPIView.as_view(), name='app_settings_list'),
 
     path('videos/', VideosListAPIView.as_view(), name='app_videos_list'),
 
@@ -23,7 +23,7 @@ urlpatterns = [
 
     path('logs/', LogsListAPIView.as_view(), name='app_logs_list'),
 
-    path('/temperature', temperatureListView, name='app_temperature_list_view'),
+    path('temperatures/', temperatureListView, name='app_temperature_list_view'),
 
     # TODO: prepare a url to accept incoming temperature updates
 ]

@@ -3,7 +3,7 @@ import { Component } from "react";
 import { Route } from "react-router-dom";
 
 import Home from "./Home";
-import Settings from "./Settings";
+import Settings from './settings';
 import Sensors from "./Sensors";
 import Notifications from "./Notifications";
 import Stream from "./Stream";
@@ -16,8 +16,8 @@ import Tab from "./Tab";
 class Dashboard extends Component {
 
   componentDidMount(){
-    const token = localStorage.getItem("access_token")
-    console.log(token)
+    // const token = localStorage.getItem("access_token")
+    // console.log(token)
   }
 
   render() {

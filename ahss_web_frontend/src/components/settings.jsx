@@ -1,105 +1,90 @@
-import React, { Component } from "react";
-import axiosInstance from "../axiosApi";
+import React, {Component} from "react";
 
 class Setting extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        message: null,
-    };
-    this.getMessage = this.getMessage.bind(this);
-}
-
-componentDidMount() {
-    const messageData1 = this.getMessage();
-    console.log("messageData1: ", JSON.stringify(messageData1, null, 4));
-}
-
-async getMessage() {
-    try {
-        let response = await axiosInstance.get('/app/settings/');
-        const message = response.data.results;
-        this.setState({
-            message: message[0].id + ' => ' + message[0].name + ': ' + message[0].state,
-        });
-        return message;
-    } catch (error) {
-        console.log("Error: ", JSON.stringify(error, null, 4));
-        throw error;
+    constructor(props) {
+        super(props);
+        this.state = {
+            message: null,
+            settings: [],
+        };
+        this.fetcher = this.fetcher.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
-}
 
-  render() {
+    componentDidMount() {
+        this.fetcher()
+    }
 
-    return (
-      <div>
-        <p>{this.state.message}</p>
-        <ul class="list-group mt-3 w-75 container-fluid">
-          <div class="list-group-item d-flex justify-content-between align-items-center">
-            Camera
-            <input
-              type="checkbox"
-              checked
-              data-toggle="toggle"
-              data-onstyle="outline-success"
-              data-offstyle="outline-danger"
-            />
-          </div>
-          <div class="list-group-item d-flex justify-content-between align-items-center">
-            Gas Sensor
-            <input
-              type="checkbox"
-              checked
-              data-toggle="toggle"
-              data-onstyle="outline-success"
-              data-offstyle="outline-danger"
-            />
-          </div>
-          <div class="list-group-item d-flex justify-content-between align-items-center">
-            Motion Sensor
-            <input
-              type="checkbox"
-              checked
-              data-toggle="toggle"
-              data-onstyle="outline-success"
-              data-offstyle="outline-danger"
-            />
-          </div>
-          <div class="list-group-item d-flex justify-content-between align-items-center">
-            Temperature Sensor
-            <input
-              type="checkbox"
-              checked
-              data-toggle="toggle"
-              data-onstyle="outline-success"
-              data-offstyle="outline-danger"
-            />
-          </div>
-          <div class="list-group-item d-flex justify-content-between align-items-center">
-            Humidity Sensor
-            <input
-              type="checkbox"
-              checked
-              data-toggle="toggle"
-              data-onstyle="outline-success"
-              data-offstyle="outline-danger"
-            />
-          </div>
-          <div class="list-group-item d-flex justify-content-between align-items-center">
-            Sound Alert
-            <input
-              type="checkbox"
-              checked
-              data-toggle="toggle"
-              data-onstyle="outline-success"
-              data-offstyle="outline-danger"
-            />
-          </div>
-         
-        </ul>
-      </div>
-    );
-  }
+    fetcher() {
+        fetch("http://10.240.39.102:8000/settings/")
+            .then((res) => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        settings: result.results
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error: true,
+                    });
+                }
+            );
+    }
+
+    handleChange(e) {
+        console.log(e.target.value)
+        if (e.target.value === 'on'){
+            e.target.value = 'off'
+        }
+        if (e.target.value === 'off'){
+            e.target.value = 'on'
+        }
+    }
+
+    render() {
+
+        return (
+            <div>
+                <p>{this.state.message}</p>
+                <ul className="list-group mt-3 w-75 container-fluid">
+                    {
+                        this.state.settings.map((val) => {
+                            return (
+                                <div key={val.id}
+                                     className="list-group-item d-flex justify-content-between align-items-center">
+                                    {
+                                        val.name
+                                    }
+                                    {
+                                        val.state === 'on' ? <input
+                                            type="checkbox"
+                                            checked
+                                            data-toggle="toggle"
+                                            data-onstyle="outline-success"
+                                            data-offstyle="outline-danger"
+                                            onChange={this.handleChange}
+
+                                        /> : <input
+                                            type="checkbox"
+                                            data-toggle="toggle"
+                                            data-onstyle="outline-success"
+                                            data-offstyle="outline-danger"
+                                            onChange={this.handleChange}
+                                        />
+                                    }
+
+
+                                </div>)
+                        })
+                    }
+                </ul>
+            </div>
+
+        );
+    }
 }
 
 export default Setting;

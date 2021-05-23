@@ -3,8 +3,9 @@ from .models import Settings, Videos, Notifications, CapturedImages, Log
 
 
 class SettingsSerializer(serializers.ModelSerializer):
-    name = serializers.CharField(max_length=255, required=True)
-    state = serializers.CharField(max_length=50, required=True)
+    # id = serializers.IntegerField(required=True)
+    # name = serializers.CharField(max_length=255)
+    # state = serializers.CharField(max_length=50)
 
     class Meta:
         model = Settings
