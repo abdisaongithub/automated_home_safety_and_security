@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://192.468.43.46:8000/',
+    baseURL: 'http://10.240.39.102:8000/',
     timeout: 5000,
     headers: {
         'Authorization': "JWT " + localStorage.getItem('access_token'),
@@ -14,7 +14,7 @@ axiosInstance.interceptors.response.use(
     response => response,
     error => {
         const originalRequest = error.config;
-        if (error.response.status === 401 && error.response.statusText === "Unauthorized") {
+        if (error.response.data === 401 && error.response.statusText === "Unauthorized") {
             const refresh_token = localStorage.getItem('refresh_token');
             return axiosInstance
                 .post('auth/token/refresh/', {refresh: refresh_token})
