@@ -13,7 +13,7 @@ class SensorsSummary extends Component {
   }
 
   fetcher() {
-    fetch("http://10.240.39.102:8000/temperatures/")
+    fetch("http://192.168.43.46:8000/sensors/")
       .then((res) => res.json())
       .then(
         (result) => {

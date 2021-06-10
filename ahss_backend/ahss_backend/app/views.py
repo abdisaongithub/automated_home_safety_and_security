@@ -70,52 +70,52 @@ class LogsListAPIView(generics.ListAPIView):
 sense = SenseHat()
 
 
-def temperatureListView(request):
+def sensorsListView(request):
 
     data = {
         'temps':
             [
                 {
                     'room': 'Living Room',
-                    'temp': round(sense.temperature + random.random()*10, 1),
+                    'temp': round(sense.temperature, 1),
                 },
                 {
                     'room': 'Kitchen',
-                    'temp': round(sense.temperature + random.random()*10, 1),
+                    'temp': round(sense.temperature + random.random()*5, 1),
                 },
                 {
                     'room': 'Master Bedroom',
-                    'temp': round(sense.temperature + random.random()*10, 1),
+                    'temp': round(sense.temperature + random.random()*5, 1),
                 },
                 {
                     'room': 'Garage',
-                    'temp': round(sense.temperature + random.random()*10, 1),
+                    'temp': round(sense.temperature + random.random()*5, 1),
                 }
             ],
         'hum':
             [
                 {
                     'room': 'Living Room',
-                    'temp': round(sense.humidity + random.random()*5, 1),
+                    'temp': round(sense.humidity, 1),
                 },
                 {
                     'room': 'Kitchen',
-                    'temp': round(sense.humidity + random.random()*5, 1),
+                    'temp': round(sense.humidity + random.random()*3, 1),
                 },
                 {
                     'room': 'Master Bedroom',
-                    'temp': round(sense.humidity + random.random()*5, 1),
+                    'temp': round(sense.humidity + random.random()*3, 1),
                 },
                 {
                     'room': 'Garage',
-                    'temp': round(sense.humidity + random.random()*5, 1),
+                    'temp': round(sense.humidity + random.random()*3, 1),
                 }
             ],
         'pressure':
             [
                 {
                     'room': 'Living Room',
-                    'temp': round(sense.pressure + random.random()*30, 1),
+                    'temp': round(sense.pressure, 1),
                 },
                 {
                     'room': 'Kitchen',

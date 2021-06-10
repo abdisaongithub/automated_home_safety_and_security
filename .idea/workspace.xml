@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65c12ca8-9051-4bd3-9b00-4bf873d76595" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/automated_home_safety_and_security.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/Run.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ahss_mobile_frontend/assets/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ahss_backend/ahss_backend/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ahss_backend/ahss_backend/app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ahss_backend/ahss_backend/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ahss_backend/ahss_backend/app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ahss_mobile_frontend/lib/login_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ahss_mobile_frontend/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/ahss_mobile_frontend/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ahss_mobile_frontend/lib/screens/dashboard_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/ahss_mobile_frontend/lib/screens/dashboard_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ahss_mobile_frontend/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ahss_mobile_frontend/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ahss_web_frontend/src/components/homeComponets/SensorsSummary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ahss_web_frontend/src/components/homeComponets/SensorsSummary.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ahss_web_frontend/src/components/settings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ahss_web_frontend/src/components/settings.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1tjWXlrxr3SNSOFc3nLveVe1NXL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ahss_mobile_frontend/assets/images" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ahss_mobile_frontend/assets/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ahss_mobile_frontend/lib/screens" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65c12ca8-9051-4bd3-9b00-4bf873d76595" name="Default Changelist" comment="" />
+      <created>1623283020415</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623283020415</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623283285821">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741@0.27.1366.741" timestamp="1623283285821" />
+    <state x="491" y="116" width="374" height="563" key="#com.intellij.ide.util.MemberChooser" timestamp="1623289679165">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="491" y="116" width="374" height="563" key="#com.intellij.ide.util.MemberChooser/0.27.1366.741@0.27.1366.741" timestamp="1623289679165" />
+    <state x="415" y="188" width="525" height="418" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1623283226471">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="415" y="188" width="525" height="418" key="#com.intellij.ide.util.TreeFileChooserDialog/0.27.1366.741@0.27.1366.741" timestamp="1623283226471" />
+    <state x="466" y="155" width="424" height="485" key="FileChooserDialogImpl" timestamp="1623283262195">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="466" y="155" width="424" height="485" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1623283262195" />
+    <state width="1320" height="174" key="GridCell.Tab.0.bottom" timestamp="1623291200919">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="174" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1623291200919" />
+    <state width="1320" height="174" key="GridCell.Tab.0.center" timestamp="1623291200918">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="174" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1623291200918" />
+    <state width="1320" height="174" key="GridCell.Tab.0.left" timestamp="1623291200918">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="174" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1623291200918" />
+    <state width="1320" height="174" key="GridCell.Tab.0.right" timestamp="1623291200919">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="174" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1623291200919" />
+    <state x="172" y="32" width="1022" height="731" key="SettingsEditor" timestamp="1623283271073">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="172" y="32" width="1022" height="731" key="SettingsEditor/0.27.1366.741@0.27.1366.741" timestamp="1623283271073" />
+    <state x="340" y="50" width="676" height="696" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1623288228732">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="340" y="50" width="676" height="696" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1366.741@0.27.1366.741" timestamp="1623288228732" />
+  </component>
+</project>

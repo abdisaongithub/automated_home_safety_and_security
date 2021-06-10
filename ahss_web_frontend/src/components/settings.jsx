@@ -4,7 +4,6 @@ class Setting extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: null,
             settings: [],
         };
         this.fetcher = this.fetcher.bind(this);
@@ -42,6 +41,7 @@ class Setting extends Component {
         if (e.target.value === 'off'){
             e.target.value = 'on'
         }
+    //    TODO: To be implemented correctly
     }
 
     render() {
@@ -66,8 +66,9 @@ class Setting extends Component {
                                             data-onstyle="outline-success"
                                             data-offstyle="outline-danger"
                                             onChange={this.handleChange}
+                                        >
 
-                                        /> : <input
+                                        </input> : <input
                                             type="checkbox"
                                             data-toggle="toggle"
                                             data-onstyle="outline-success"

@@ -6,7 +6,7 @@ from .views import (
     NotificationsListAPIView,
     CapturedImagesListAPIView,
     LogsListAPIView,
-    temperatureListView,
+    sensorsListView,
 )
 
 urlpatterns = [
@@ -23,7 +23,7 @@ urlpatterns = [
 
     path('logs/', LogsListAPIView.as_view(), name='app_logs_list'),
 
-    path('temperatures/', temperatureListView, name='app_temperature_list_view'),
+    path('sensors/', sensorsListView, name='app_temperature_list_view'),
 
     # TODO: prepare a url to accept incoming temperature updates
 ]
