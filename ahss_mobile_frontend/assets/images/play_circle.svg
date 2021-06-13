@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="159" height="159" viewBox="0 0 159 159">
+  <defs>
+    <filter id="Polygon_7" x="44" y="27" width="95" height="105" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#0083ff" flood-opacity="0.902"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_10" x="0" y="0" width="159" height="159" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-color="#0083ff"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_183" data-name="Group 183" transform="translate(-412 -271)">
+    <g transform="matrix(1, 0, 0, 1, 412, 271)" filter="url(#Polygon_7)">
+      <g id="Polygon_7-2" data-name="Polygon 7" transform="translate(124 42) rotate(90)" fill="#0083ff">
+        <path d="M 72.40288543701172 63.5 L 2.59711742401123 63.5 L 37.5 3.001670360565186 L 72.40288543701172 63.5 Z" stroke="none"/>
+        <path d="M 37.5 6.003337860107422 L 5.194236755371094 62 L 69.80577087402344 62 L 37.5 6.003337860107422 M 37.5 0 L 75 65 L 0 65 L 37.5 0 Z" stroke="none" fill="#0083ff"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 412, 271)" filter="url(#Ellipse_10)">
+      <g id="Ellipse_10-2" data-name="Ellipse 10" transform="translate(15 15)" fill="none" stroke="#0083ff" stroke-width="5">
+        <circle cx="64.5" cy="64.5" r="64.5" stroke="none"/>
+        <circle cx="64.5" cy="64.5" r="62" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

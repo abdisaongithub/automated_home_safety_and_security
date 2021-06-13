@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="113" height="125" viewBox="0 0 113 125">
+  <defs>
+    <filter id="Polygon_8" x="0" y="0" width="113" height="125" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#0083ff"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Polygon_8)">
+    <g id="Polygon_8-2" data-name="Polygon 8" transform="translate(98 15) rotate(90)" fill="none">
+      <path d="M47.5,0,95,83H0Z" stroke="none"/>
+      <path d="M 47.5 6.039848327636719 L 5.173408508300781 80 L 89.82659149169922 80 L 47.5 6.039848327636719 M 47.5 0 L 95 83 L 0 83 L 47.5 0 Z" stroke="none" fill="#0083ff"/>
+    </g>
+  </g>
+</svg>
