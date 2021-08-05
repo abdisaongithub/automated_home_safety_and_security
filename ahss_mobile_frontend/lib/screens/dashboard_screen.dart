@@ -1,7 +1,5 @@
 import 'package:ahss_mobile_frontend/components/dashboard_drawer.dart';
 import 'package:ahss_mobile_frontend/components/the_container.dart';
-import 'package:ahss_mobile_frontend/screens/live_stream_screen.dart';
-import 'package:ahss_mobile_frontend/screens/notifications_screen.dart';
 import 'package:ahss_mobile_frontend/screens/sensors_detail.dart';
 import 'package:ahss_mobile_frontend/static_files.dart';
 import 'package:flutter/material.dart';
@@ -39,11 +37,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: Container(
         height: height,
         width: width,
-
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: InkWell(
-            onTap: (){
+            onTap: () {
               Navigator.pushNamed(context, SensorsDetailScreen.id);
             },
             child: Padding(
@@ -88,14 +85,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         backgroundColor: kPrimary,
                         shadeColor: kBlueShade,
                         themeColor: kBlue,
-                        title: 'TEMPERATURE',
+                        title: 'MOTION',
                       ),
                       TheContainer(
                         size: forty,
                         backgroundColor: kPrimary,
                         shadeColor: kRedShade,
                         themeColor: kRed,
-                        title: 'HUMIDITY',
+                        title: 'FIRE',
                       ),
                     ],
                   ),
@@ -110,7 +107,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         backgroundColor: kPrimary,
                         shadeColor: kRedShade,
                         themeColor: kRed,
-                        title: 'TEMPERATURE',
+                        title: 'CH4 - METHANE',
                         radius: BorderRadius.only(
                           bottomLeft: Radius.circular(15),
                         ),
@@ -120,7 +117,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         backgroundColor: kPrimary,
                         shadeColor: kBlueShade,
                         themeColor: kBlue,
-                        title: 'HUMIDITY',
+                        title: 'CO2',
                         radius: BorderRadius.only(
                           bottomRight: Radius.circular(15),
                         ),

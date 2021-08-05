@@ -1,3 +1,6 @@
+import json
+
+from django.http import HttpResponse
 from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -21,7 +24,10 @@ class SingleUserView(RetrieveAPIView):
 
 
 def singleUserView(request, ):
-    return request.user
+    if request.user:
+        return request.user
+    return Response(data=json.dumps({'error': 'error', 'message': 'Unauthorized'}, ),
+                    status=status.HTTP_401_UNAUTHORIZED, )
 
 
 class ObtainTokenView(TokenObtainPairView):
