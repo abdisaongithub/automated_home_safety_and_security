@@ -1,18 +1,18 @@
-from django.shortcuts import render
 from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.generics import UpdateAPIView, CreateAPIView, RetrieveAPIView
+from rest_framework.generics import UpdateAPIView, CreateAPIView, RetrieveAPIView, ListAPIView
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .models import User
 from .serializers import UserSerializer, ObtainTokenSerializer
 
 
-class UserViewSet(viewsets.ModelViewSet):
+# TODO: change this class to RetrieveApiView
+class UserRetrieveApiView(ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.IsAuthenticated,)
 
 
 class SingleUserView(RetrieveAPIView):

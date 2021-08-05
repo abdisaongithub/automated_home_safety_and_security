@@ -1,5 +1,8 @@
 import 'package:ahss_mobile_frontend/components/dashboard_drawer.dart';
 import 'package:ahss_mobile_frontend/components/the_container.dart';
+import 'package:ahss_mobile_frontend/screens/live_stream_screen.dart';
+import 'package:ahss_mobile_frontend/screens/notifications_screen.dart';
+import 'package:ahss_mobile_frontend/screens/sensors_detail.dart';
 import 'package:ahss_mobile_frontend/static_files.dart';
 import 'package:flutter/material.dart';
 
@@ -36,89 +39,96 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: Container(
         height: height,
         width: width,
+
         child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.only(top: 18),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TheContainer(
-                      size: forty,
-                      backgroundColor: kPrimary,
-                      shadeColor: kBlueShade,
-                      themeColor: kBlue,
-                      title: 'TEMPERATURE',
-                      radius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
+          scrollDirection: Axis.vertical,
+          child: InkWell(
+            onTap: (){
+              Navigator.pushNamed(context, SensorsDetailScreen.id);
+            },
+            child: Padding(
+              padding: EdgeInsets.only(top: 18),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      TheContainer(
+                        size: forty,
+                        backgroundColor: kPrimary,
+                        shadeColor: kBlueShade,
+                        themeColor: kBlue,
+                        title: 'TEMPERATURE',
+                        radius: BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                        ),
                       ),
-                    ),
-                    TheContainer(
-                      size: forty,
-                      backgroundColor: kPrimary,
-                      shadeColor: kBlueShade,
-                      themeColor: kBlue,
-                      title: 'HUMIDITY',
-                      radius: BorderRadius.only(
-                        topRight: Radius.circular(15),
+                      TheContainer(
+                        size: forty,
+                        backgroundColor: kPrimary,
+                        shadeColor: kBlueShade,
+                        themeColor: kBlue,
+                        title: 'HUMIDITY',
+                        radius: BorderRadius.only(
+                          topRight: Radius.circular(15),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 14,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TheContainer(
-                      size: forty,
-                      backgroundColor: kPrimary,
-                      shadeColor: kBlueShade,
-                      themeColor: kBlue,
-                      title: 'TEMPERATURE',
-                    ),
-                    TheContainer(
-                      size: forty,
-                      backgroundColor: kPrimary,
-                      shadeColor: kRedShade,
-                      themeColor: kRed,
-                      title: 'HUMIDITY',
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 14,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TheContainer(
-                      size: forty,
-                      backgroundColor: kPrimary,
-                      shadeColor: kRedShade,
-                      themeColor: kRed,
-                      title: 'TEMPERATURE',
-                      radius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 14,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      TheContainer(
+                        size: forty,
+                        backgroundColor: kPrimary,
+                        shadeColor: kBlueShade,
+                        themeColor: kBlue,
+                        title: 'TEMPERATURE',
                       ),
-                    ),
-                    TheContainer(
-                      size: forty,
-                      backgroundColor: kPrimary,
-                      shadeColor: kBlueShade,
-                      themeColor: kBlue,
-                      title: 'HUMIDITY',
-                      radius: BorderRadius.only(
-                        bottomRight: Radius.circular(15),
+                      TheContainer(
+                        size: forty,
+                        backgroundColor: kPrimary,
+                        shadeColor: kRedShade,
+                        themeColor: kRed,
+                        title: 'HUMIDITY',
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                  SizedBox(
+                    height: 14,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      TheContainer(
+                        size: forty,
+                        backgroundColor: kPrimary,
+                        shadeColor: kRedShade,
+                        themeColor: kRed,
+                        title: 'TEMPERATURE',
+                        radius: BorderRadius.only(
+                          bottomLeft: Radius.circular(15),
+                        ),
+                      ),
+                      TheContainer(
+                        size: forty,
+                        backgroundColor: kPrimary,
+                        shadeColor: kBlueShade,
+                        themeColor: kBlue,
+                        title: 'HUMIDITY',
+                        radius: BorderRadius.only(
+                          bottomRight: Radius.circular(15),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

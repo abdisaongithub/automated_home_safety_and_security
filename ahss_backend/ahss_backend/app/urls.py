@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     SettingsListCreateAPIView,
-    SettingsUpdateAPIView,
+    SettingsRetrieveUpdateAPIView,
     VideosListAPIView,
     NotificationsListAPIView,
     CapturedImagesListAPIView,
@@ -13,7 +13,7 @@ urlpatterns = [
 
     path('settings/', SettingsListCreateAPIView.as_view(), name='app_settings_list'),
 
-    path('settings/update/', SettingsUpdateAPIView.as_view(), name='app_settings_list'),
+    path('settings/<int:pk>/', SettingsRetrieveUpdateAPIView.as_view(), name='app_settings_list'),
 
     path('videos/', VideosListAPIView.as_view(), name='app_videos_list'),
 
@@ -25,5 +25,6 @@ urlpatterns = [
 
     path('sensors/', sensorsListView, name='app_temperature_list_view'),
 
-    # TODO: prepare a url to accept incoming temperature updates
+    # TODO: prepare a url to accept incoming sensor updates, preferably use websocket
+
 ]

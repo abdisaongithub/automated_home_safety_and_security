@@ -45,7 +45,7 @@ class NotificationsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Notifications
-        fields = '__all_'
+        fields = '__all__'
         read_only_fields = ('id', 'title', 'content', 'datetime', 'seen', 'link_to_video')
 
 

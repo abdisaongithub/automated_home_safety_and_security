@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from rest_framework import generics
 import random
-from rest_framework.response import Response
 from sense_emu import SenseHat
 from .serializers import (
     SettingsSerializer,
@@ -27,7 +26,7 @@ class SettingsListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = (permissions.AllowAny,)
 
 
-class SettingsUpdateAPIView(generics.UpdateAPIView):
+class SettingsRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
     queryset = Settings.objects.all()
     serializer_class = SettingsSerializer
 
@@ -43,28 +42,28 @@ class VideosListAPIView(generics.ListAPIView):
     serializer_class = VideosSerializer
     # TODO: I believe this is enough, and change Log model to logs or the other models to their singular form
 
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.AllowAny,)
 
 
 class NotificationsListAPIView(generics.ListAPIView):
     queryset = Notifications.objects.all()
     serializer_class = NotificationsSerializer
 
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.AllowAny,)
 
 
 class CapturedImagesListAPIView(generics.ListAPIView):
     queryset = CapturedImages.objects.all()
     serializer_class = CapturedImagesSerializer
 
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.AllowAny,)
 
 
 class LogsListAPIView(generics.ListAPIView):
     queryset = Log.objects.all()
     serializer_class = LogsSerializer
 
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.AllowAny,)
 
 
 sense = SenseHat()
@@ -133,6 +132,11 @@ def sensorsListView(request):
     }
 
     return HttpResponse(json.dumps(data), status.HTTP_200_OK)
+
+
+def temperatureListView(request):
+    # TODO: generate different humidity here : RPi
+    pass
 
 
 def humidityListView(request):
