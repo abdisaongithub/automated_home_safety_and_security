@@ -12,7 +12,8 @@ class TheContainer extends StatelessWidget {
     this.shadeColor,
     this.backgroundColor,
     this.title,
-    this.middleElement,
+    this.middleText = 'NAN',
+    this.onTap,
   }) : super(key: key);
 
   final double size;
@@ -21,72 +22,76 @@ class TheContainer extends StatelessWidget {
   final Color themeColor;
   final Color shadeColor;
   final String title;
-  final Widget middleElement;
+  final String middleText;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        border: Border(
-          top: BorderSide(
-            color: themeColor,
-            width: 2,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          border: Border(
+            top: BorderSide(
+              color: themeColor,
+              width: 2,
+            ),
+            left: BorderSide(
+              color: themeColor,
+              width: 2,
+            ),
+            right: BorderSide(
+              color: themeColor,
+              width: 2,
+            ),
+            bottom: BorderSide(
+              color: themeColor,
+              width: 2,
+            ),
           ),
-          left: BorderSide(
-            color: themeColor,
-            width: 2,
-          ),
-          right: BorderSide(
-            color: themeColor,
-            width: 2,
-          ),
-          bottom: BorderSide(
-            color: themeColor,
-            width: 2,
-          ),
+          borderRadius: radius,
+          boxShadow: [
+            BoxShadow(
+              color: shadeColor,
+              spreadRadius: 5,
+              blurRadius: 10,
+              offset: Offset(0, 0),
+            ),
+          ],
         ),
-        borderRadius: radius,
-        boxShadow: [
-          BoxShadow(
-            color: shadeColor,
-            spreadRadius: 5,
-            blurRadius: 10,
-            offset: Offset(0, 0),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 12,
-          ),
-          Text(
-            title,
-            style: TextStyle(color: kWhite, fontSize: 18),
-          ),
-          Expanded(
-            child: Center(
-              child: middleElement ?? SizedBox(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 12,
+            ),
+            Text(
+              title,
+              style: TextStyle(color: kWhite, fontSize: 18),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(middleText, style: TextStyle(color: Colors.white, fontSize: 30,), textAlign: TextAlign.center,) ?? SizedBox(height: 0,),
+                ),
+              ),
+            // TODO: replace Expanded with a configured text
+            Padding(
+              padding: EdgeInsets.only(right: 12, bottom: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Image.asset(
+                    'assets/images/logo.png',
+                    height: 18,
+                  ),
+                ],
               ),
             ),
-          // TODO: replace Expanded with a configured text
-          Padding(
-            padding: EdgeInsets.only(right: 12, bottom: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Image.asset(
-                  'assets/images/logo.png',
-                  height: 18,
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

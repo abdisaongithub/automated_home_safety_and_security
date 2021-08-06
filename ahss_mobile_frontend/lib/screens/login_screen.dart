@@ -26,6 +26,7 @@ class _LogInScreenState extends State<LogInScreen> {
   final storage = new FlutterSecureStorage();
 
 
+
   @override
   void initState() {
     super.initState();
@@ -36,11 +37,13 @@ class _LogInScreenState extends State<LogInScreen> {
     _tokenPair = await LoginInAction.post(email: email, password: password);
 
     if (_tokenPair.access == Strings.error) {
+
       setState(() {
         _isLoading = false;
       });
 
       print(Strings.error);
+
     } else {
 
       await storage.write(key: Strings.email, value: email);
@@ -49,6 +52,7 @@ class _LogInScreenState extends State<LogInScreen> {
       await storage.write(key: Strings.access, value: _tokenPair.access);
 
       Navigator.pushReplacementNamed(context, DashboardScreen.id);
+
     }
   }
 

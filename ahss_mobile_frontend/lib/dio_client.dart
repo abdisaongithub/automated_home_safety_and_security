@@ -1,11 +1,24 @@
 import 'package:dio/dio.dart';
 
-Dio dio = Dio(
+Dio dioPostClient = Dio(
   BaseOptions(
-    baseUrl: 'http://192.168.137.187:8000/',
-    connectTimeout: 10000,
-    receiveTimeout: 10000,
-    sendTimeout: 10000,
+    baseUrl: 'http://10.240.72.174:8000/',
+    connectTimeout: 100000,
+    receiveTimeout: 100000,
+    sendTimeout: 100000,
+    headers: {
+      'Content-Type': url_encoded,
+      'Accept': 'application/json',
+    },
+  ),
+);
+
+Dio dioGetClient = Dio(
+  BaseOptions(
+    baseUrl: 'http://10.240.72.174:8000/',
+    connectTimeout: 100000,
+    receiveTimeout: 100000,
+    sendTimeout: 100000,
     headers: {
       'Content-Type': url_encoded,
       'Accept': 'application/json',

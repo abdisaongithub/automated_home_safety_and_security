@@ -1,8 +1,12 @@
+import 'package:ahss_mobile_frontend/actions/get_sensors_summary_action.dart';
 import 'package:ahss_mobile_frontend/components/dashboard_drawer.dart';
 import 'package:ahss_mobile_frontend/components/the_container.dart';
+import 'package:ahss_mobile_frontend/models/sensors_summary_model.dart';
 import 'package:ahss_mobile_frontend/screens/sensors_detail.dart';
 import 'package:ahss_mobile_frontend/static_files.dart';
+import 'package:ahss_mobile_frontend/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class DashboardScreen extends StatefulWidget {
   static String id = 'DashboardScreen';
@@ -12,6 +16,28 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+  bool _isLoading = true;
+  SensorsSummary _sensorsSummary;
+
+  @override
+  void initState() {
+    super.initState();
+    getSensorsSummary();
+  }
+
+  getSensorsSummary() async {
+    _sensorsSummary = await GetSensorsSummary.getSummary();
+
+    if (_sensorsSummary.hum.isEmpty) {
+      print('Error Happened');
+    } else {
+      setState(() {
+        _isLoading = false;
+        print('Successful');
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // final DashboardArguments args = ModalRoute.of(context).settings.arguments;
@@ -34,108 +60,187 @@ class _DashboardScreenState extends State<DashboardScreen> {
         centerTitle: true,
       ),
       drawer: DashboardDrawer(),
-      body: Container(
-        height: height,
-        width: width,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, SensorsDetailScreen.id);
-            },
-            child: Padding(
-              padding: EdgeInsets.only(top: 18),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TheContainer(
-                        size: forty,
-                        backgroundColor: kPrimary,
-                        shadeColor: kBlueShade,
-                        themeColor: kBlue,
-                        title: 'TEMPERATURE',
-                        radius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
+      body: Stack(
+        children: [
+          Container(
+            height: height,
+            width: width,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Padding(
+                padding: EdgeInsets.only(top: 18),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TheContainer(
+                          size: forty,
+                          backgroundColor: kPrimary,
+                          shadeColor: kRedShade,
+                          themeColor: kRed,
+                          title: 'TEMPERATURE',
+                          radius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                          ),
+                          middleText: _isLoading == false
+                              ? _sensorsSummary.temps[0].temp.toString()
+                              : 'NAN',
+                          onTap: () {
+                            Navigator.pushNamed(context, SensorsDetailScreen.id,
+                                arguments: SensorDetailArguments(
+                                    name: Strings.Temperature));
+                          },
                         ),
-                      ),
-                      TheContainer(
-                        size: forty,
-                        backgroundColor: kPrimary,
-                        shadeColor: kBlueShade,
-                        themeColor: kBlue,
-                        title: 'HUMIDITY',
-                        radius: BorderRadius.only(
-                          topRight: Radius.circular(15),
+                        TheContainer(
+                          size: forty,
+                          backgroundColor: kPrimary,
+                          shadeColor: kBlueShade,
+                          themeColor: kBlue,
+                          title: 'HUMIDITY',
+                          radius: BorderRadius.only(
+                            topRight: Radius.circular(15),
+                          ),
+                          middleText: _isLoading == false
+                              ? _sensorsSummary.hum[0].hum.toString()
+                              : 'NAN',
+                          onTap: () {
+                            Navigator.pushNamed(context, SensorsDetailScreen.id,
+                                arguments: SensorDetailArguments(
+                                    name: Strings.Humidity));
+                          },
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 14,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TheContainer(
-                        size: forty,
-                        backgroundColor: kPrimary,
-                        shadeColor: kBlueShade,
-                        themeColor: kBlue,
-                        title: 'MOTION',
-                      ),
-                      TheContainer(
-                        size: forty,
-                        backgroundColor: kPrimary,
-                        shadeColor: kRedShade,
-                        themeColor: kRed,
-                        title: 'FIRE',
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 14,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TheContainer(
-                        size: forty,
-                        backgroundColor: kPrimary,
-                        shadeColor: kRedShade,
-                        themeColor: kRed,
-                        title: 'CH4 - METHANE',
-                        radius: BorderRadius.only(
-                          bottomLeft: Radius.circular(15),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 14,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TheContainer(
+                          size: forty,
+                          backgroundColor: kPrimary,
+                          shadeColor: kBlueShade,
+                          themeColor: kBlue,
+                          title: 'MOTION',
+                          middleText:
+                              _isLoading == false ? 'None Detected' : 'NAN',
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              SensorsDetailScreen.id,
+                              arguments: SensorDetailArguments(
+                                name: Strings.Motion,
+                              ),
+                            );
+                          },
                         ),
-                      ),
-                      TheContainer(
-                        size: forty,
-                        backgroundColor: kPrimary,
-                        shadeColor: kBlueShade,
-                        themeColor: kBlue,
-                        title: 'CO2',
-                        radius: BorderRadius.only(
-                          bottomRight: Radius.circular(15),
+                        TheContainer(
+                          size: forty,
+                          backgroundColor: kPrimary,
+                          shadeColor: kBlueShade,
+                          themeColor: kBlue,
+                          title: 'FIRE',
+                          middleText: _isLoading == false ? 'Safe' : 'NAN',
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              SensorsDetailScreen.id,
+                              arguments: SensorDetailArguments(
+                                name: Strings.Fire,
+                              ),
+                            );
+                          },
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    SizedBox(
+                      height: 14,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TheContainer(
+                          size: forty,
+                          backgroundColor: kPrimary,
+                          shadeColor: kBlueShade,
+                          themeColor: kBlue,
+                          title: 'CH4 - METHANE',
+                          radius: BorderRadius.only(
+                            bottomLeft: Radius.circular(15),
+                          ),
+                          middleText: _isLoading == false ? 'Low' : 'NAN',
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              SensorsDetailScreen.id,
+                              arguments: SensorDetailArguments(
+                                name: Strings.CH4,
+                              ),
+                            );
+                          },
+                        ),
+                        TheContainer(
+                          size: forty,
+                          backgroundColor: kPrimary,
+                          shadeColor: kBlueShade,
+                          themeColor: kBlue,
+                          title: 'CO2',
+                          radius: BorderRadius.only(
+                            bottomRight: Radius.circular(15),
+                          ),
+                          middleText: _isLoading == false ? 'Low' : 'NAN',
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              SensorsDetailScreen.id,
+                              arguments: SensorDetailArguments(
+                                name: Strings.CO2,
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
+          _isLoading
+              ? Container(
+                  height: height,
+                  width: width,
+                  color: Colors.black.withOpacity(0.7),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Loading Sensors Summary For You ....',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 32,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              : SizedBox(
+                  height: 0,
+                ),
+        ],
       ),
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 }
 

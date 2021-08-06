@@ -12,15 +12,16 @@ class SensorsDetailScreen extends StatefulWidget {
 class _SensorsDetailScreenState extends State<SensorsDetailScreen> {
   @override
   Widget build(BuildContext context) {
+
     final forty = MediaQuery.of(context).size.width * 0.4;
 
-    print(MediaQuery.of(context).orientation);
+    var arguments = ModalRoute.of(context).settings.arguments as SensorDetailArguments;
 
     return Scaffold(
       backgroundColor: kSecondary,
       appBar: AppBar(
         title: Text(
-          'Temperatures',
+          arguments.name,
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
         backgroundColor: kPrimary,
@@ -41,7 +42,7 @@ class _SensorsDetailScreenState extends State<SensorsDetailScreen> {
                   SensorContainer(
                     size: forty,
                     backgroundColor: kPrimary,
-                    title: 'SHEWI\'S ROOM',
+                    title: 'Living Room',
                     themeColor: kBlue,
                     shadeColor: kBlueShade,
                     radius: BorderRadius.only(topLeft: Radius.circular(15)),
@@ -155,4 +156,11 @@ class MiddleElement extends StatelessWidget {
       ],
     );
   }
+}
+
+class SensorDetailArguments{
+  final String name;
+
+  SensorDetailArguments({this.name});
+
 }

@@ -95,43 +95,43 @@ def sensorsListView(request):
             [
                 {
                     'room': 'Living Room',
-                    'temp': round(sense.humidity, 1),
+                    'hum': round(sense.humidity, 1),
                 },
                 {
                     'room': 'Kitchen',
-                    'temp': round(sense.humidity + random.random()*3, 1),
+                    'hum': round(sense.humidity + random.random()*3, 1),
                 },
                 {
                     'room': 'Master Bedroom',
-                    'temp': round(sense.humidity + random.random()*3, 1),
+                    'hum': round(sense.humidity + random.random()*3, 1),
                 },
                 {
                     'room': 'Garage',
-                    'temp': round(sense.humidity + random.random()*3, 1),
+                    'hum': round(sense.humidity + random.random()*3, 1),
                 }
             ],
         'pressure':
             [
                 {
                     'room': 'Living Room',
-                    'temp': round(sense.pressure, 1),
+                    'pre': round(sense.pressure, 1),
                 },
                 {
                     'room': 'Kitchen',
-                    'temp': round(sense.pressure + random.random()*30, 1),
+                    'pre': round(sense.pressure + random.random()*30, 1),
                 },
                 {
                     'room': 'Master Bedroom',
-                    'temp': round(sense.pressure + random.random()*30, 1),
+                    'pre': round(sense.pressure + random.random()*30, 1),
                 },
                 {
                     'room': 'Garage',
-                    'temp': round(sense.pressure + random.random()*30, 1),
+                    'pre': round(sense.pressure + random.random()*30, 1),
                 }
             ],
     }
 
-    return HttpResponse(json.dumps(data), status.HTTP_200_OK)
+    return HttpResponse(json.dumps(data), status=status.HTTP_200_OK, content_type='Application/json')
 
 
 def temperatureListView(request):
