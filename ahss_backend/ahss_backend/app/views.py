@@ -1,3 +1,4 @@
+import io
 from django.http import HttpResponse
 from rest_framework import generics
 import random
@@ -69,8 +70,8 @@ class LogsListAPIView(generics.ListAPIView):
 sense = SenseHat()
 
 
-def sensorsListView(request):
 
+def sensorsListView(request):
     data = {
         'temps':
             [
@@ -80,15 +81,15 @@ def sensorsListView(request):
                 },
                 {
                     'room': 'Kitchen',
-                    'temp': round(sense.temperature + random.random()*5, 1),
+                    'temp': round(sense.temperature + random.random() * 5, 1),
                 },
                 {
                     'room': 'Master Bedroom',
-                    'temp': round(sense.temperature + random.random()*5, 1),
+                    'temp': round(sense.temperature + random.random() * 5, 1),
                 },
                 {
                     'room': 'Garage',
-                    'temp': round(sense.temperature + random.random()*5, 1),
+                    'temp': round(sense.temperature + random.random() * 5, 1),
                 }
             ],
         'hum':
@@ -99,15 +100,15 @@ def sensorsListView(request):
                 },
                 {
                     'room': 'Kitchen',
-                    'hum': round(sense.humidity + random.random()*3, 1),
+                    'hum': round(sense.humidity + random.random() * 3, 1),
                 },
                 {
                     'room': 'Master Bedroom',
-                    'hum': round(sense.humidity + random.random()*3, 1),
+                    'hum': round(sense.humidity + random.random() * 3, 1),
                 },
                 {
                     'room': 'Garage',
-                    'hum': round(sense.humidity + random.random()*3, 1),
+                    'hum': round(sense.humidity + random.random() * 3, 1),
                 }
             ],
         'pressure':
@@ -118,15 +119,15 @@ def sensorsListView(request):
                 },
                 {
                     'room': 'Kitchen',
-                    'pre': round(sense.pressure + random.random()*30, 1),
+                    'pre': round(sense.pressure + random.random() * 30, 1),
                 },
                 {
                     'room': 'Master Bedroom',
-                    'pre': round(sense.pressure + random.random()*30, 1),
+                    'pre': round(sense.pressure + random.random() * 30, 1),
                 },
                 {
                     'room': 'Garage',
-                    'pre': round(sense.pressure + random.random()*30, 1),
+                    'pre': round(sense.pressure + random.random() * 30, 1),
                 }
             ],
     }
@@ -147,6 +148,16 @@ def humidityListView(request):
 def infraredListView(request):
     # TODO: generate different infrared here : RPi
     pass
+
+
+def is_raspberrypi():
+    try:
+        with io.open('/sys/firmware/devicetree/base/model', 'r') as m:
+            if 'raspberry pi' in m.read().lower():
+                return True
+    except Exception:
+        pass
+    return False
 
 # TODO: RPi IP- 10.0.2.15
 # TODO: RPi Password: raspberry

@@ -38,6 +38,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,7 +50,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    'rest_framework_swagger',
+    'drf_yasg',
+
 
     # Custom Apps
     'core',
@@ -85,6 +87,8 @@ TEMPLATES = [
     },
 ]
 
+ASGI_APPLICATION = "ahss_backend.asgi.application"
+
 WSGI_APPLICATION = 'ahss_backend.wsgi.application'
 
 # Database
@@ -100,8 +104,8 @@ DATABASES = {
         'NAME': 'ahss',
         'USER': 'postgres',
         'PASSWORD': 'shadow',
-        'HOST': '127.0.0.1',	
-        'PORT': '5432',																			
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -206,3 +210,13 @@ CORS_ORIGIN_WHITELIST = [
 APPEND_SLASH = True
 
 # TODO: Validate every single input from the endpoints
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+        },
+        "ROUTING": "sensor.routing.channel_routing",
+    },
+}
