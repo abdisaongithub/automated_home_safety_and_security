@@ -23,7 +23,7 @@ class NotificationTile extends StatelessWidget {
       child: Container(
         height: 65,
         decoration: BoxDecoration(
-          color: kPrimary,
+          color: kPrimaryColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(50),
             topRight: Radius.circular(50),
@@ -31,25 +31,25 @@ class NotificationTile extends StatelessWidget {
           ),
           border: Border(
             top: BorderSide(
-              color: kBlue,
+              color: kBlueColor,
               width: 2,
             ),
             left: BorderSide(
-              color: kBlue,
+              color: kBlueColor,
               width: 2,
             ),
             right: BorderSide(
-              color: kBlue,
+              color: kBlueColor,
               width: 2,
             ),
             bottom: BorderSide(
-              color: kBlue,
+              color: kBlueColor,
               width: 2,
             ),
           ),
           boxShadow: [
             BoxShadow(
-              color: kBlueShade,
+              color: kBlueShadeColor,
               spreadRadius: 5,
               blurRadius: 5,
               offset: Offset(0, 0),
@@ -96,7 +96,7 @@ class NotificationTile extends StatelessWidget {
               if (read) SvgPicture.asset(
                 'assets/images/read.svg',
                 height: 30,
-                color: kBlue,
+                color: kBlueColor,
                 allowDrawingOutsideViewBox: false,
               ) else Container(
                       height: 18,
@@ -104,13 +104,13 @@ class NotificationTile extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: kBlue,
+                            color: kBlueColor,
                             blurRadius: 2,
                             spreadRadius: 2,
                             offset: Offset(0, 0),
                           ),
                         ],
-                        color: kBlue,
+                        color: kBlueColor,
                         borderRadius: BorderRadius.circular(14),
                       ),
                     ),

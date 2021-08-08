@@ -8,7 +8,7 @@ class LoginInAction {
     TokenPair token;
     TokenPair tokenError;
     try {
-      Response response = await dioPostClient.post(
+      Response response = await dioClient.post(
         'auth/login/',
         data: {
           'email': email,

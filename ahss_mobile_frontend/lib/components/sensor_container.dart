@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../static_files.dart';
 
@@ -30,7 +32,7 @@ class SensorContainer extends StatefulWidget {
 class _SensorContainerState extends State<SensorContainer>
     with SingleTickerProviderStateMixin {
 
-  var switched_on = false;
+  var switched_on = Random(0).nextInt(1) == 1 ? true : false ;
 
   AnimationController _animationController;
   Animation _animation;
@@ -55,31 +57,31 @@ class _SensorContainerState extends State<SensorContainer>
   Widget build(BuildContext context) {
     return Container(
       width: widget.size,
-      height: widget.size,
+      height: widget.size / 2,
       decoration: BoxDecoration(
         color: widget.backgroundColor,
         border: Border(
           top: BorderSide(
-            color: switched_on ? kBlue : kRed,
+            color: switched_on ? kBlueColor : kRedColor,
             width: 2,
           ),
           left: BorderSide(
-            color: switched_on ? kBlue : kRed,
+            color: switched_on ? kBlueColor : kRedColor,
             width: 2,
           ),
           right: BorderSide(
-            color: switched_on ? kBlue : kRed,
+            color: switched_on ? kBlueColor : kRedColor,
             width: 2,
           ),
           bottom: BorderSide(
-            color: switched_on ? kBlue : kRed,
+            color: switched_on ? kBlueColor : kRedColor,
             width: 2,
           ),
         ),
         borderRadius: widget.radius,
         boxShadow: [
           BoxShadow(
-            color: switched_on ? kBlueShade : kRedShade,
+            color: switched_on ? kBlueShadeColor : kRedShadeColor,
             spreadRadius: 5,
             blurRadius: 10,
             offset: Offset(0, 0),
@@ -94,7 +96,7 @@ class _SensorContainerState extends State<SensorContainer>
           ),
           Text(
             widget.title,
-            style: TextStyle(color: kWhite, fontSize: 18),
+            style: TextStyle(color: kWhiteColor, fontSize: 18),
           ),
           Expanded(
             child: Center(
@@ -126,7 +128,7 @@ class _SensorContainerState extends State<SensorContainer>
                         height: 26,
                         width: 50,
                         decoration: BoxDecoration(
-                            color: switched_on ? kBlue : kRed,
+                            color: switched_on ? kBlueColor : kRedColor,
                             borderRadius: BorderRadius.circular(15),),
                       ),
                       Positioned(

@@ -1,5 +1,6 @@
 import 'package:ahss_mobile_frontend/components/sensor_container.dart';
 import 'package:ahss_mobile_frontend/static_files.dart';
+import 'package:bezier_chart/bezier_chart.dart';
 import 'package:flutter/material.dart';
 
 class SensorsDetailScreen extends StatefulWidget {
@@ -12,19 +13,20 @@ class SensorsDetailScreen extends StatefulWidget {
 class _SensorsDetailScreenState extends State<SensorsDetailScreen> {
   @override
   Widget build(BuildContext context) {
-
     final forty = MediaQuery.of(context).size.width * 0.4;
+    final ninety = MediaQuery.of(context).size.width * 0.9;
 
-    var arguments = ModalRoute.of(context).settings.arguments as SensorDetailArguments;
+    var arguments =
+        ModalRoute.of(context).settings.arguments as SensorDetailArguments;
 
     return Scaffold(
-      backgroundColor: kSecondary,
+      backgroundColor: kSecondaryColor,
       appBar: AppBar(
         title: Text(
           arguments.name,
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
-        backgroundColor: kPrimary,
+        backgroundColor: kPrimaryColor,
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -40,78 +42,56 @@ class _SensorsDetailScreenState extends State<SensorsDetailScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SensorContainer(
-                    size: forty,
-                    backgroundColor: kPrimary,
+                    size: ninety,
+                    backgroundColor: kPrimaryColor,
                     title: 'Living Room',
-                    themeColor: kBlue,
-                    shadeColor: kBlueShade,
-                    radius: BorderRadius.only(topLeft: Radius.circular(15)),
-                    middleElement: MiddleElement(value: '27', unit: '°C',),
-                    image: 'assets/images/switch_on.svg',
-                  ),
-                  SensorContainer(
-                    size: forty,
-                    backgroundColor: kPrimary,
-                    title: 'LIVING ROOM',
-                    themeColor: kBlue,
-                    shadeColor: kBlueShade,
-                    radius: BorderRadius.only(topRight: Radius.circular(15)),
-                    middleElement: MiddleElement(value: '25.9', unit: '°C',),
+                    themeColor: kBlueColor,
+                    shadeColor: kBlueShadeColor,
+                    middleElement: MiddleElement(
+                      value: '27',
+                      unit: '°C',
+                    ),
                     image: 'assets/images/switch_on.svg',
                   ),
                 ],
               ),
-              SizedBox(height: 14,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SensorContainer(
-                    size: forty,
-                    backgroundColor: kPrimary,
-                    title: 'LIVING ROOM',
-                    themeColor: kRed,
-                    shadeColor: kRedShade,
-                    radius: BorderRadius.only(topRight: Radius.circular(0)),
-                    middleElement: MiddleElement(value: '25.9', unit: '°C',),
-                    image: 'assets/images/switch_off.svg',
-                  ),
-                  SensorContainer(
-                    size: forty,
-                    backgroundColor: kPrimary,
-                    title: 'LIVING ROOM',
-                    themeColor: kBlue,
-                    shadeColor: kBlueShade,
-                    radius: BorderRadius.only(topLeft: Radius.circular(0)),
-                    middleElement: MiddleElement(value: '27', unit: '°C',),
-                    image: 'assets/images/switch_on.svg',
-                  ),
-                ],
+              SizedBox(
+                height: 14,
               ),
-              SizedBox(height: 14,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SensorContainer(
-                    size: forty,
-                    backgroundColor: kPrimary,
-                    title: 'LIVING ROOM',
-                    themeColor: kBlue,
-                    shadeColor: kBlueShade,
-                    radius: BorderRadius.only(bottomLeft: Radius.circular(15)),
-                    middleElement: MiddleElement(value: '27', unit: '°C',),
-                    image: 'assets/images/switch_on.svg',
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Container(
+                  color: Colors.red,
+                  height: MediaQuery.of(context).size.width * 0.55,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: BezierChart(
+                    bezierChartScale: BezierChartScale.CUSTOM,
+                    xAxisCustomValues: const [0, 5, 10, 15, 20, 25, 30, 35],
+                    series: const [
+                      BezierLine(
+                        data: const [
+                          DataPoint<double>(value: 10, xAxis: 0),
+                          DataPoint<double>(value: 130, xAxis: 5),
+                          DataPoint<double>(value: 50, xAxis: 10),
+                          DataPoint<double>(value: 150, xAxis: 15),
+                          DataPoint<double>(value: 75, xAxis: 20),
+                          DataPoint<double>(value: 0, xAxis: 25),
+                          DataPoint<double>(value: 5, xAxis: 30),
+                          DataPoint<double>(value: 45, xAxis: 35),
+                        ],
+                      ),
+                    ],
+                    config: BezierChartConfig(
+                      verticalIndicatorStrokeWidth: 3.0,
+                      verticalIndicatorColor: Colors.black26,
+                      showVerticalIndicator: true,
+                      backgroundColor: kPrimaryColor,
+                      snap: false,
+                    ),
                   ),
-                  SensorContainer(
-                    size: forty,
-                    backgroundColor: kPrimary,
-                    title: 'LIVING ROOM',
-                    themeColor: kRed,
-                    shadeColor: kRedShade,
-                    radius: BorderRadius.only(bottomRight: Radius.circular(15)),
-                    middleElement: MiddleElement(value: '25.9', unit: '°C',),
-                    image: 'assets/images/switch_off.svg',
-                  ),
-                ],
+                ),
+              ],),
+              SizedBox(
+                height: 14,
               ),
             ],
           ),
@@ -122,11 +102,7 @@ class _SensorsDetailScreenState extends State<SensorsDetailScreen> {
 }
 
 class MiddleElement extends StatelessWidget {
-  const MiddleElement({
-    Key key,
-    this.value,
-    this.unit
-  }) : super(key: key);
+  const MiddleElement({Key key, this.value, this.unit}) : super(key: key);
   final String value;
   final String unit;
 
@@ -139,7 +115,7 @@ class MiddleElement extends StatelessWidget {
         Text(
           value,
           style: TextStyle(
-            color: kBlue,
+            color: kBlueColor,
             fontSize: 44,
           ),
         ),
@@ -149,7 +125,7 @@ class MiddleElement extends StatelessWidget {
         Text(
           unit,
           style: TextStyle(
-            color: kBlue,
+            color: kBlueColor,
             fontSize: 28,
           ),
         ),
@@ -158,9 +134,8 @@ class MiddleElement extends StatelessWidget {
   }
 }
 
-class SensorDetailArguments{
+class SensorDetailArguments {
   final String name;
 
   SensorDetailArguments({this.name});
-
 }

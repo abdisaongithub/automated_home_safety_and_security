@@ -28,7 +28,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   getSensorsSummary() async {
     _sensorsSummary = await GetSensorsSummary.getSummary();
 
-    if (_sensorsSummary.hum.isEmpty) {
+    if (_sensorsSummary == null) {
       print('Error Happened');
     } else {
       setState(() {
@@ -47,7 +47,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     double forty = MediaQuery.of(context).size.width * 0.4;
 
     return Scaffold(
-      backgroundColor: kSecondary,
+      backgroundColor: kSecondaryColor,
       appBar: AppBar(
         title: Image(
           height: 28,
@@ -56,7 +56,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
           fit: BoxFit.contain,
         ),
-        backgroundColor: kPrimary,
+        backgroundColor: kPrimaryColor,
         centerTitle: true,
       ),
       drawer: DashboardDrawer(),
@@ -78,9 +78,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       children: [
                         TheContainer(
                           size: forty,
-                          backgroundColor: kPrimary,
-                          shadeColor: kRedShade,
-                          themeColor: kRed,
+                          backgroundColor: kPrimaryColor,
+                          shadeColor: kRedShadeColor,
+                          themeColor: kRedColor,
                           title: 'TEMPERATURE',
                           radius: BorderRadius.only(
                             topLeft: Radius.circular(15),
@@ -96,9 +96,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         TheContainer(
                           size: forty,
-                          backgroundColor: kPrimary,
-                          shadeColor: kBlueShade,
-                          themeColor: kBlue,
+                          backgroundColor: kPrimaryColor,
+                          shadeColor: kBlueShadeColor,
+                          themeColor: kBlueColor,
                           title: 'HUMIDITY',
                           radius: BorderRadius.only(
                             topRight: Radius.circular(15),
@@ -122,9 +122,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       children: [
                         TheContainer(
                           size: forty,
-                          backgroundColor: kPrimary,
-                          shadeColor: kBlueShade,
-                          themeColor: kBlue,
+                          backgroundColor: kPrimaryColor,
+                          shadeColor: kBlueShadeColor,
+                          themeColor: kBlueColor,
                           title: 'MOTION',
                           middleText:
                               _isLoading == false ? 'None Detected' : 'NAN',
@@ -140,9 +140,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         TheContainer(
                           size: forty,
-                          backgroundColor: kPrimary,
-                          shadeColor: kBlueShade,
-                          themeColor: kBlue,
+                          backgroundColor: kPrimaryColor,
+                          shadeColor: kBlueShadeColor,
+                          themeColor: kBlueColor,
                           title: 'FIRE',
                           middleText: _isLoading == false ? 'Safe' : 'NAN',
                           onTap: () {
@@ -165,9 +165,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       children: [
                         TheContainer(
                           size: forty,
-                          backgroundColor: kPrimary,
-                          shadeColor: kBlueShade,
-                          themeColor: kBlue,
+                          backgroundColor: kPrimaryColor,
+                          shadeColor: kBlueShadeColor,
+                          themeColor: kBlueColor,
                           title: 'CH4 - METHANE',
                           radius: BorderRadius.only(
                             bottomLeft: Radius.circular(15),
@@ -185,9 +185,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         TheContainer(
                           size: forty,
-                          backgroundColor: kPrimary,
-                          shadeColor: kBlueShade,
-                          themeColor: kBlue,
+                          backgroundColor: kPrimaryColor,
+                          shadeColor: kBlueShadeColor,
+                          themeColor: kBlueColor,
                           title: 'CO2',
                           radius: BorderRadius.only(
                             bottomRight: Radius.circular(15),

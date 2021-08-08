@@ -23,7 +23,7 @@ class DashboardDrawer extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          color: kPrimary
+          color: kPrimaryColor
         ),
         child: Column(
           // mainAxisSize: MainAxisSize.max,
@@ -37,7 +37,7 @@ class DashboardDrawer extends StatelessWidget {
             ),
             SizedBox(height: 20,),
             Divider(
-              color: kSecondary,
+              color: kSecondaryColor,
               endIndent: 14,
               indent: 14,
               thickness: 2,
@@ -103,7 +103,7 @@ class DrawerItem extends StatelessWidget {
                   child: Container(
                     height: 50,
                     decoration: BoxDecoration(
-                      color: kCharcoal,
+                      color: kCharcoalColor,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(50),
                         topRight: Radius.circular(50),
@@ -111,19 +111,19 @@ class DrawerItem extends StatelessWidget {
                       ),
                       border: Border(
                         top: BorderSide(
-                          color: kBlue,
+                          color: kBlueColor,
                           width: 2,
                         ),
                         left: BorderSide(
-                          color: kBlue,
+                          color: kBlueColor,
                           width: 2,
                         ),
                         right: BorderSide(
-                          color: kBlue,
+                          color: kBlueColor,
                           width: 2,
                         ),
                         bottom: BorderSide(
-                          color: kBlue,
+                          color: kBlueColor,
                           width: 2,
                         ),
                       ),
@@ -158,7 +158,7 @@ class DrawerItem extends StatelessWidget {
             width: 20,
             decoration: BoxDecoration(
               boxShadow: [
-                BoxShadow(color: kBlue,blurRadius: 3, offset: Offset(0,0), spreadRadius: 3),
+                BoxShadow(color: kBlueColor,blurRadius: 3, offset: Offset(0,0), spreadRadius: 3),
               ],
               borderRadius: BorderRadius.circular(14),
             ),
@@ -166,7 +166,7 @@ class DrawerItem extends StatelessWidget {
               child: Text(
                 randomInteger().toString(),
                 style: TextStyle(
-                  color: kWhite,
+                  color: kWhiteColor,
                   fontSize: 14
                 ),
               ),

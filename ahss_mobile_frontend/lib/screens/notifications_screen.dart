@@ -15,14 +15,14 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kSecondary,
+      backgroundColor: kSecondaryColor,
       appBar: AppBar(
         title: Text(
           'NOTIFICATIONS',
-          style: TextStyle(color: kWhite, fontSize: 20),
+          style: TextStyle(color: kWhiteColor, fontSize: 20),
         ),
         centerTitle: true,
-        backgroundColor: kPrimary,
+        backgroundColor: kPrimaryColor,
       ),
       body: Padding(
         padding: EdgeInsets.all(8),

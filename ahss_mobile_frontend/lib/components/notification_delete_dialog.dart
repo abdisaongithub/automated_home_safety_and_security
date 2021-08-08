@@ -21,7 +21,7 @@ class NotificationDeleteDialog extends StatelessWidget {
       child: Container(
         height: 65,
         decoration: BoxDecoration(
-          color: kPrimary,
+          color: kPrimaryColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(50),
             topRight: Radius.circular(50),
@@ -29,25 +29,25 @@ class NotificationDeleteDialog extends StatelessWidget {
           ),
           border: Border(
             top: BorderSide(
-              color: kBlue,
+              color: kBlueColor,
               width: 2,
             ),
             left: BorderSide(
-              color: kBlue,
+              color: kBlueColor,
               width: 2,
             ),
             right: BorderSide(
-              color: kBlue,
+              color: kBlueColor,
               width: 2,
             ),
             bottom: BorderSide(
-              color: kBlue,
+              color: kBlueColor,
               width: 2,
             ),
           ),
           boxShadow: [
             BoxShadow(
-              color: kBlueShade,
+              color: kBlueShadeColor,
               spreadRadius: 5,
               blurRadius: 5,
               offset: Offset(0, 0),
@@ -68,12 +68,12 @@ class NotificationDeleteDialog extends StatelessWidget {
                 width: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: kBlue,
+                  color: kBlueColor,
                 ),
                 child: Center(
                   child: Text(
                     'No',
-                    style: TextStyle(color: kWhite, fontSize: 18),
+                    style: TextStyle(color: kWhiteColor, fontSize: 18),
                   ),
                 ),
               ),
@@ -111,12 +111,12 @@ class NotificationDeleteDialog extends StatelessWidget {
                 width: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: kRed,
+                  color: kRedColor,
                 ),
                 child: Center(
                   child: Text(
                     'Yes',
-                    style: TextStyle(color: kWhite, fontSize: 18),
+                    style: TextStyle(color: kWhiteColor, fontSize: 18),
                   ),
                 ),
               ),

@@ -61,7 +61,7 @@ class _LogInScreenState extends State<LogInScreen> {
     double eighty = MediaQuery.of(context).size.width * 0.8;
 
     return Scaffold(
-      backgroundColor: kPrimary,
+      backgroundColor: kPrimaryColor,
       body: !_isLoading
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -96,29 +96,29 @@ class _LogInScreenState extends State<LogInScreen> {
                       width: eighty,
                       height: eighty,
                       decoration: BoxDecoration(
-                        color: kSecondary,
+                        color: kSecondaryColor,
                         border: Border(
                           top: BorderSide(
-                            color: kBlue,
+                            color: kBlueColor,
                             width: 2,
                           ),
                           left: BorderSide(
-                            color: kBlue,
+                            color: kBlueColor,
                             width: 2,
                           ),
                           right: BorderSide(
-                            color: kBlue,
+                            color: kBlueColor,
                             width: 2,
                           ),
                           bottom: BorderSide(
-                            color: kBlue,
+                            color: kBlueColor,
                             width: 2,
                           ),
                         ),
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: [
                           BoxShadow(
-                            color: kBlueShade,
+                            color: kBlueShadeColor,
                             spreadRadius: 5,
                             blurRadius: 10,
                             offset: Offset(0, 0),
@@ -137,7 +137,7 @@ class _LogInScreenState extends State<LogInScreen> {
                             ),
                             Text(
                               "Email",
-                              style: TextStyle(color: kWhite, fontSize: 18),
+                              style: TextStyle(color: kWhiteColor, fontSize: 18),
                             ),
                             SizedBox(
                               height: 12,
@@ -155,7 +155,7 @@ class _LogInScreenState extends State<LogInScreen> {
                             ),
                             Text(
                               "Password",
-                              style: TextStyle(color: kWhite, fontSize: 18),
+                              style: TextStyle(color: kWhiteColor, fontSize: 18),
                             ),
                             SizedBox(
                               height: 12,
@@ -178,7 +178,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                 Text(
                                   "Forgot Password?",
                                   style: TextStyle(
-                                    color: kBlue,
+                                    color: kBlueColor,
                                     fontSize: 18,
                                   ),
                                 ),
@@ -193,11 +193,11 @@ class _LogInScreenState extends State<LogInScreen> {
                                     height: 40,
                                     width: 100,
                                     decoration: BoxDecoration(
-                                      color: kBlue,
+                                      color: kBlueColor,
                                       borderRadius: BorderRadius.circular(10),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: kBlue,
+                                          color: kBlueColor,
                                           spreadRadius: 2,
                                           blurRadius: 4,
                                           offset: Offset(0, 0),
@@ -207,7 +207,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                     child: Center(
                                       child: Text(
                                         'Login',
-                                        style: TextStyle(color: kWhite),
+                                        style: TextStyle(color: kWhiteColor),
                                       ),
                                     ),
                                   ),
@@ -267,11 +267,11 @@ class _LoginInputsState extends State<LoginInput> {
     return Container(
       height: 48,
       decoration: BoxDecoration(
-        color: kWhite,
+        color: kWhiteColor,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: kBlue,
+            color: kBlueColor,
             spreadRadius: 2,
             blurRadius: 4,
             offset: Offset(0, 0),
@@ -287,10 +287,10 @@ class _LoginInputsState extends State<LoginInput> {
           onChanged: widget.onChanged,
           keyboardType: widget.inputType,
           textAlign: TextAlign.left,
-          cursorColor: kBlack,
+          cursorColor: kBlackColor,
           obscureText: widget.obscure,
           style: TextStyle(
-            color: kBlack,
+            color: kBlackColor,
             fontSize: 18.0,
           ),
           strutStyle: StrutStyle.disabled,
@@ -299,7 +299,7 @@ class _LoginInputsState extends State<LoginInput> {
             hintStyle: TextStyle(
               color: Colors.black45,
             ),
-            focusColor: kBlack,
+            focusColor: kBlackColor,
           ),
         ),
       ),

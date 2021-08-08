@@ -1,6 +1,7 @@
 import 'package:ahss_mobile_frontend/static_files.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
 class LiveStreamScreen extends StatefulWidget {
   static String id = 'LiveStreamScreen';
@@ -10,18 +11,32 @@ class LiveStreamScreen extends StatefulWidget {
 }
 
 class _LiveStreamScreenState extends State<LiveStreamScreen> {
+  String _streamUrl = 'http://192.168.137.15:8081';
+
+  // TODO: Change the url
+
+  VlcPlayerController _vlcPlayerController;
+
+  @override
+  void initState(){
+    super.initState();
+
+    _vlcPlayerController = new VlcPlayerController.network(_streamUrl);
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'LIVE STREAM',
-          style: TextStyle(color: kWhite, fontSize: 20),
+          style: TextStyle(color: kWhiteColor, fontSize: 20),
         ),
         centerTitle: true,
-        backgroundColor: kPrimary,
+        backgroundColor: kPrimaryColor,
       ),
-      backgroundColor: kSecondary,
+      backgroundColor: kSecondaryColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,14 +51,13 @@ class _LiveStreamScreenState extends State<LiveStreamScreen> {
                 height: 200,
                 width: MediaQuery.of(context).size.width * 0.85,
                 decoration: BoxDecoration(
-                  color: kWhite,
+                  color: kWhiteColor,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Center(
-                  child: SvgPicture.asset(
-                    'assets/images/play_circle.svg',
-                    height: 100,
-                  ),
+                child: new VlcPlayer(
+                  aspectRatio: 16/9,
+                  controller: _vlcPlayerController,
+                  placeholder: Center(child: Container(height: 200, width: MediaQuery.of(context).size.width * 0.85, color: Colors.green,)),
                 ),
               ),
             ],
@@ -60,7 +74,7 @@ class _LiveStreamScreenState extends State<LiveStreamScreen> {
                     height: 100,
                     width: MediaQuery.of(context).size.width * 0.4,
                     decoration: BoxDecoration(
-                      color: kCharcoal,
+                      color: kCharcoalColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Center(
@@ -75,7 +89,7 @@ class _LiveStreamScreenState extends State<LiveStreamScreen> {
                     left: 60,
                     child: Text(
                       'Cam 1',
-                      style: TextStyle(color: kWhite, fontSize: 14,),
+                      style: TextStyle(color: kWhiteColor, fontSize: 14,),
                     ),
                   ),
                 ],
@@ -86,7 +100,7 @@ class _LiveStreamScreenState extends State<LiveStreamScreen> {
                     height: 100,
                     width: MediaQuery.of(context).size.width * 0.4,
                     decoration: BoxDecoration(
-                      color: kCharcoal,
+                      color: kCharcoalColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Center(
@@ -101,7 +115,7 @@ class _LiveStreamScreenState extends State<LiveStreamScreen> {
                     left: 60,
                     child: Text(
                       'Cam 1',
-                      style: TextStyle(color: kWhite, fontSize: 14,),
+                      style: TextStyle(color: kWhiteColor, fontSize: 14,),
                     ),
                   ),
                 ],

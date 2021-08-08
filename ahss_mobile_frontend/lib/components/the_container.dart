@@ -70,7 +70,7 @@ class TheContainer extends StatelessWidget {
             ),
             Text(
               title,
-              style: TextStyle(color: kWhite, fontSize: 18),
+              style: TextStyle(color: kWhiteColor, fontSize: 18),
             ),
             Expanded(
               child: Center(
