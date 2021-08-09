@@ -34,12 +34,13 @@ class _SensorsDetailScreenState extends State<SensorsDetailScreen> {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
                 height: 20,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SensorContainer(
                     size: ninety,
@@ -47,10 +48,8 @@ class _SensorsDetailScreenState extends State<SensorsDetailScreen> {
                     title: 'Living Room',
                     themeColor: kBlueColor,
                     shadeColor: kBlueShadeColor,
-                    middleElement: MiddleElement(
-                      value: '27',
-                      unit: '°C',
-                    ),
+                    value: '27',
+                    unit: '°C',
                     image: 'assets/images/switch_on.svg',
                   ),
                 ],
@@ -97,39 +96,6 @@ class _SensorsDetailScreenState extends State<SensorsDetailScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class MiddleElement extends StatelessWidget {
-  const MiddleElement({Key key, this.value, this.unit}) : super(key: key);
-  final String value;
-  final String unit;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Text(
-          value,
-          style: TextStyle(
-            color: kBlueColor,
-            fontSize: 44,
-          ),
-        ),
-        SizedBox(
-          width: 4,
-        ),
-        Text(
-          unit,
-          style: TextStyle(
-            color: kBlueColor,
-            fontSize: 28,
-          ),
-        ),
-      ],
     );
   }
 }

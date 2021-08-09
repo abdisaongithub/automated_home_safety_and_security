@@ -65,61 +65,9 @@ class _LiveStreamScreenState extends State<LiveStreamScreen> {
           SizedBox(
             height: 18,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          ListView(
             children: [
-              Stack(
-                children: [
-                  Container(
-                    height: 100,
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    decoration: BoxDecoration(
-                      color: kCharcoalColor,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset(
-                        'assets/images/play.svg',
-                        height: 50,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 5,
-                    left: 60,
-                    child: Text(
-                      'Cam 1',
-                      style: TextStyle(color: kWhiteColor, fontSize: 14,),
-                    ),
-                  ),
-                ],
-              ),
-              Stack(
-                children: [
-                  Container(
-                    height: 100,
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    decoration: BoxDecoration(
-                      color: kCharcoalColor,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset(
-                        'assets/images/play.svg',
-                        height: 50,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 5,
-                    left: 60,
-                    child: Text(
-                      'Cam 1',
-                      style: TextStyle(color: kWhiteColor, fontSize: 14,),
-                    ),
-                  ),
-                ],
-              ),
+              // TODO: List of videos previously recorded
             ],
           ),
         ],
@@ -127,5 +75,3 @@ class _LiveStreamScreenState extends State<LiveStreamScreen> {
     );
   }
 }
-
-// TODO: complete the upper/bigger player ui

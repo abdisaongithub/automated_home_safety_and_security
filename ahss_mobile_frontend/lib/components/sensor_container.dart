@@ -4,17 +4,19 @@ import 'package:flutter/material.dart';
 import '../static_files.dart';
 
 class SensorContainer extends StatefulWidget {
-  const SensorContainer(
-      {Key key,
-      @required this.size,
-      this.radius,
-      this.themeColor,
-      this.shadeColor,
-      this.backgroundColor,
-      this.title,
-      this.middleElement,
-      this.image})
-      : super(key: key);
+  const SensorContainer({
+    Key key,
+    @required this.size,
+    this.radius,
+    this.themeColor,
+    this.shadeColor,
+    this.backgroundColor,
+    this.title,
+    this.middleElement,
+    this.image,
+    this.value,
+    this.unit,
+  }) : super(key: key);
 
   final double size;
   final BorderRadiusGeometry radius;
@@ -24,6 +26,8 @@ class SensorContainer extends StatefulWidget {
   final String title;
   final String image;
   final Widget middleElement;
+  final String value;
+  final String unit;
 
   @override
   _SensorContainerState createState() => _SensorContainerState();
@@ -31,12 +35,10 @@ class SensorContainer extends StatefulWidget {
 
 class _SensorContainerState extends State<SensorContainer>
     with SingleTickerProviderStateMixin {
-
-  var switched_on = Random(0).nextInt(1) == 1 ? true : false ;
+  var switched_on = Random(0).nextInt(1) == 1 ? true : false;
 
   AnimationController _animationController;
   Animation _animation;
-
 
   @override
   void initState() {
@@ -46,7 +48,8 @@ class _SensorContainerState extends State<SensorContainer>
       duration: Duration(milliseconds: 100),
     );
 
-    _animation = CurvedAnimation(parent: _animationController, curve: Curves.easeOut);
+    _animation =
+        CurvedAnimation(parent: _animationController, curve: Curves.easeOut);
 
     _animationController.addListener(() {
       setState(() {});
@@ -100,7 +103,29 @@ class _SensorContainerState extends State<SensorContainer>
           ),
           Expanded(
             child: Center(
-              child: widget.middleElement ?? SizedBox(),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    widget.value,
+                    style: TextStyle(
+                      color: switched_on ? kBlueColor : kRedColor,
+                      fontSize: 44,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Text(
+                    widget.unit,
+                    style: TextStyle(
+                      color: switched_on ? kBlueColor : kRedColor,
+                      fontSize: 28,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           // TODO: replace Expanded with a configured text
@@ -128,13 +153,15 @@ class _SensorContainerState extends State<SensorContainer>
                         height: 26,
                         width: 50,
                         decoration: BoxDecoration(
-                            color: switched_on ? kBlueColor : kRedColor,
-                            borderRadius: BorderRadius.circular(15),),
+                          color: switched_on ? kBlueColor : kRedColor,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
                       ),
                       Positioned(
                         left: 24 * _animationController.value,
                         child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: 3, vertical: 3),
+                          margin:
+                              EdgeInsets.symmetric(horizontal: 3, vertical: 3),
                           height: 20,
                           width: 20,
                           decoration: BoxDecoration(
@@ -151,6 +178,39 @@ class _SensorContainerState extends State<SensorContainer>
           ),
         ],
       ),
+    );
+  }
+}
+
+class MiddleElement extends StatelessWidget {
+  const MiddleElement({Key key, this.value, this.unit}) : super(key: key);
+  final String value;
+  final String unit;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          value,
+          style: TextStyle(
+            color: kBlueColor,
+            fontSize: 44,
+          ),
+        ),
+        SizedBox(
+          width: 4,
+        ),
+        Text(
+          unit,
+          style: TextStyle(
+            color: kBlueColor,
+            fontSize: 28,
+          ),
+        ),
+      ],
     );
   }
 }
