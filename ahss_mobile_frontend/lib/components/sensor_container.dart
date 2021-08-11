@@ -35,7 +35,7 @@ class SensorContainer extends StatefulWidget {
 
 class _SensorContainerState extends State<SensorContainer>
     with SingleTickerProviderStateMixin {
-  var switched_on = Random(0).nextInt(1) == 1 ? true : false;
+  var switched_on = false;
 
   AnimationController _animationController;
   Animation _animation;
@@ -52,12 +52,21 @@ class _SensorContainerState extends State<SensorContainer>
         CurvedAnimation(parent: _animationController, curve: Curves.easeOut);
 
     _animationController.addListener(() {
-      setState(() {});
+      setState(() {
+      });
     });
+
+  }
+
+  setSwitch(){
+    if(switched_on == true){
+      _animationController.forward();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    setSwitch();
     return Container(
       width: widget.size,
       height: widget.size / 2,
@@ -108,7 +117,7 @@ class _SensorContainerState extends State<SensorContainer>
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    widget.value,
+                    switched_on ? widget.value : ' - ',
                     style: TextStyle(
                       color: switched_on ? kBlueColor : kRedColor,
                       fontSize: 44,
@@ -117,18 +126,18 @@ class _SensorContainerState extends State<SensorContainer>
                   SizedBox(
                     width: 4,
                   ),
+                  switched_on ?
                   Text(
                     widget.unit,
                     style: TextStyle(
                       color: switched_on ? kBlueColor : kRedColor,
                       fontSize: 28,
                     ),
-                  ),
+                  ) : SizedBox(),
                 ],
               ),
             ),
           ),
-          // TODO: replace Expanded with a configured text
           Padding(
             padding: EdgeInsets.only(right: 8, bottom: 8),
             child: Row(
@@ -158,7 +167,7 @@ class _SensorContainerState extends State<SensorContainer>
                         ),
                       ),
                       Positioned(
-                        left: 24 * _animationController.value,
+                        left: (24 * _animationController.value),
                         child: Container(
                           margin:
                               EdgeInsets.symmetric(horizontal: 3, vertical: 3),
@@ -178,39 +187,6 @@ class _SensorContainerState extends State<SensorContainer>
           ),
         ],
       ),
-    );
-  }
-}
-
-class MiddleElement extends StatelessWidget {
-  const MiddleElement({Key key, this.value, this.unit}) : super(key: key);
-  final String value;
-  final String unit;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Text(
-          value,
-          style: TextStyle(
-            color: kBlueColor,
-            fontSize: 44,
-          ),
-        ),
-        SizedBox(
-          width: 4,
-        ),
-        Text(
-          unit,
-          style: TextStyle(
-            color: kBlueColor,
-            fontSize: 28,
-          ),
-        ),
-      ],
     );
   }
 }

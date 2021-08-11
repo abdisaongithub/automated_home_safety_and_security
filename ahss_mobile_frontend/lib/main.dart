@@ -1,12 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:ahss_mobile_frontend/screens/live_stream_screen.dart';
 import 'package:ahss_mobile_frontend/screens/login_screen.dart';
 import 'package:ahss_mobile_frontend/screens/dashboard_screen.dart';
 import 'package:ahss_mobile_frontend/screens/notifications_screen.dart';
-import 'package:ahss_mobile_frontend/screens/sensors_detail.dart';
+import 'package:ahss_mobile_frontend/screens/sensor_details/temperature_sensors_detail.dart';
+import 'package:ahss_mobile_frontend/screens/settings_screen.dart';
 import 'package:ahss_mobile_frontend/screens/splash_screen.dart';
-import 'package:ahss_mobile_frontend/strings.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,6 +31,7 @@ class MyApp extends StatelessWidget {
         SensorsDetailScreen.id: (context) => SensorsDetailScreen(),
         NotificationsScreen.id: (context) => NotificationsScreen(),
         LiveStreamScreen.id: (context) => LiveStreamScreen(),
+        SettingsScreen.id: (context) => SettingsScreen(),
       },
     );
   }

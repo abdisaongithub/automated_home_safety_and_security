@@ -4,11 +4,11 @@ import 'package:ahss_mobile_frontend/screens/dashboard_screen.dart';
 import 'package:ahss_mobile_frontend/screens/live_stream_screen.dart';
 import 'package:ahss_mobile_frontend/screens/login_screen.dart';
 import 'package:ahss_mobile_frontend/screens/notifications_screen.dart';
-import 'package:ahss_mobile_frontend/screens/sensors_detail.dart';
+import 'package:ahss_mobile_frontend/screens/sensor_details/temperature_sensors_detail.dart';
+import 'package:ahss_mobile_frontend/screens/settings_screen.dart';
 import 'package:ahss_mobile_frontend/static_files.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 class DashboardDrawer extends StatelessWidget {
   const DashboardDrawer({
@@ -22,48 +22,62 @@ class DashboardDrawer extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          color: kPrimaryColor
-        ),
-        child: Column(
-          // mainAxisSize: MainAxisSize.max,
-          children: [
-            SizedBox(height: 40,),
-            SizedBox(height: 20,),
-            Image(
-              image: AssetImage('assets/images/logo.png'),
-              height: 35,
-              fit: BoxFit.contain,
-            ),
-            SizedBox(height: 20,),
-            Divider(
-              color: kSecondaryColor,
-              endIndent: 14,
-              indent: 14,
-              thickness: 2,
-            ),
-            DrawerItem(
-              label: 'Dashboard',
-              route: DashboardScreen.id,
-            ),
-            DrawerItem(
-              label: 'LiveStream',
-              route: LiveStreamScreen.id,
-            ),
-            DrawerItem(
-              label: 'Notification',
-              route: NotificationsScreen.id,
-            ),
-            DrawerItem(
-              label: 'Sensors Detail',
-              route: SensorsDetailScreen.id,
-            ),
-            DrawerItem(
-              label: 'Logout',
-              route: '/',
-              // TODO: Make routing efficient
-            ),
-          ],
+        decoration: BoxDecoration(color: kPrimaryColor),
+        child: SafeArea(
+          child: Column(
+            // mainAxisSize: MainAxisSize.max,
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              Image(
+                image: AssetImage('assets/images/logo.png'),
+                height: 35,
+                fit: BoxFit.contain,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Divider(
+                color: kSecondaryColor,
+                endIndent: 14,
+                indent: 14,
+                thickness: 2,
+              ),
+              DrawerItem(
+                label: 'Settings',
+                route: SettingsScreen.id,
+              ),
+              DrawerItem(
+                label: 'LiveStream',
+                route: LiveStreamScreen.id,
+              ),
+              DrawerItem(
+                label: 'Notification',
+                route: NotificationsScreen.id,
+                badge: true,
+                num: Random(0).nextInt(7),
+              ),
+              DrawerItem(
+                label: 'Sensors Detail',
+                route: SensorsDetailScreen.id,
+              ),
+              Expanded(
+                child: SizedBox(),
+              ),
+              Divider(
+                color: kSecondaryColor,
+                endIndent: 14,
+                indent: 14,
+                thickness: 1,
+              ),
+              DrawerItem(
+                label: 'Logout',
+                route: '/',
+                // TODO: Make routing efficient
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -71,14 +85,17 @@ class DashboardDrawer extends StatelessWidget {
 }
 
 class DrawerItem extends StatelessWidget {
-
-  DrawerItem({@required this.route, this.label = 'Default'});
+  DrawerItem({
+    @required this.route,
+    this.label = 'Default',
+    this.badge = false,
+    this.num = 0,
+  });
 
   final String route;
   final String label;
-  int randomInteger() {
-    return Random().nextInt(7);
-  }
+  final bool badge;
+  final int num;
 
   @override
   Widget build(BuildContext context) {
@@ -92,12 +109,8 @@ class DrawerItem extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(15),
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pop(context);
-                    if(route == DashboardScreen.id){
-                      // Navigator.pop(context);
-                      return;
-                    }
                     Navigator.pushNamed(context, route);
                   },
                   child: Container(
@@ -136,10 +149,9 @@ class DrawerItem extends StatelessWidget {
                           Text(
                             label,
                             style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18
-                            ),
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18),
                           ),
                         ],
                       ),
@@ -150,6 +162,7 @@ class DrawerItem extends StatelessWidget {
             ],
           ),
         ),
+        badge ?
         Positioned(
           top: 14,
           right: 14,
@@ -158,21 +171,23 @@ class DrawerItem extends StatelessWidget {
             width: 20,
             decoration: BoxDecoration(
               boxShadow: [
-                BoxShadow(color: kBlueColor,blurRadius: 3, offset: Offset(0,0), spreadRadius: 3),
+                BoxShadow(
+                  color: kBlueColor,
+                  blurRadius: 3,
+                  offset: Offset(0, 0),
+                  spreadRadius: 3,
+                ),
               ],
               borderRadius: BorderRadius.circular(14),
             ),
             child: Center(
               child: Text(
-                randomInteger().toString(),
-                style: TextStyle(
-                  color: kWhiteColor,
-                  fontSize: 14
-                ),
+                num.toString(),
+                style: TextStyle(color: kWhiteColor, fontSize: 14),
               ),
             ),
           ),
-        ),
+        ) : SizedBox(),
       ],
     );
   }

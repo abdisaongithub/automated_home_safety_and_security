@@ -2,7 +2,7 @@ import 'package:ahss_mobile_frontend/actions/get_sensors_summary_action.dart';
 import 'package:ahss_mobile_frontend/components/dashboard_drawer.dart';
 import 'package:ahss_mobile_frontend/components/the_container.dart';
 import 'package:ahss_mobile_frontend/models/sensors_summary_model.dart';
-import 'package:ahss_mobile_frontend/screens/sensors_detail.dart';
+import 'package:ahss_mobile_frontend/screens/sensor_details/temperature_sensors_detail.dart';
 import 'package:ahss_mobile_frontend/static_files.dart';
 import 'package:ahss_mobile_frontend/strings.dart';
 import 'package:flutter/material.dart';

@@ -11,4 +11,6 @@ class Strings{
   static String CO2 = 'CO2';
   static String CH4 = 'CH4';
   static String Smoke = 'Smoke';
+  static String NoData = 'NoData';
+
 }
