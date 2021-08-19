@@ -65,8 +65,6 @@ class SomeElement extends StatelessWidget {
               response = await client.post(
                 'http://192.168.43.46:8000/auth/token/obtain/',
                 data: formData,
-                // options: Options(headers: {'Accept': 'application/json'}),
-                //  TODO: Find out what happened to this option shit
               );
             } catch (e) {
               print(e.toString());

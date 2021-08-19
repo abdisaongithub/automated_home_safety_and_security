@@ -25,6 +25,7 @@ class SettingsListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = SettingsSerializer
 
     permission_classes = (permissions.AllowAny,)
+    # TODO: sort settings alphabetically
 
 
 class SettingsRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
@@ -133,6 +134,10 @@ def sensorsListView(request):
     }
 
     return HttpResponse(json.dumps(data), status=status.HTTP_200_OK, content_type='Application/json')
+
+
+def updateSetting():
+    return response(data=json.dumps({'data': 'Sens Data'}), status=status.HTTP_200_OK, content_type='Application/json' )
 
 
 def temperatureListView(request):

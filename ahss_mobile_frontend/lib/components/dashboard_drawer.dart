@@ -74,7 +74,6 @@ class DashboardDrawer extends StatelessWidget {
               DrawerItem(
                 label: 'Logout',
                 route: '/',
-                // TODO: Make routing efficient
               ),
             ],
           ),

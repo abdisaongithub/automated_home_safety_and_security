@@ -11,7 +11,7 @@ class LiveStreamScreen extends StatefulWidget {
 }
 
 class _LiveStreamScreenState extends State<LiveStreamScreen> {
-  String _streamUrl = 'http://192.168.137.15:8081';
+  String _streamUrl = 'http://10.240.72.142:8081';
 
   // TODO: Change the url
 

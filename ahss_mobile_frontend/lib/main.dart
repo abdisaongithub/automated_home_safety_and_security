@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/',
+      initialRoute: LogInScreen.id,
       routes: {
         '/': (context) => SplashScreen(),
         LogInScreen.id: (context) => LogInScreen(),

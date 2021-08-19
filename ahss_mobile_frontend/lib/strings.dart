@@ -12,5 +12,7 @@ class Strings{
   static String CH4 = 'CH4';
   static String Smoke = 'Smoke';
   static String NoData = 'NoData';
+  static String On = 'on';
+  static String Off = 'off';
 
 }
