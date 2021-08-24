@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics
 import random
-from sense_emu import SenseHat
 from .serializers import (
     SettingsSerializer,
     VideosSerializer,
@@ -64,7 +63,6 @@ class LogsListAPIView(generics.ListAPIView):
     permission_classes = (permissions.AllowAny,)
 
 
-sense = SenseHat()
 
 
 def sensorsListView(request):
@@ -73,57 +71,57 @@ def sensorsListView(request):
             [
                 {
                     'room': 'Living Room',
-                    'temp': round(sense.temperature, 1),
+                    'temp': 20,
                 },
                 {
                     'room': 'Kitchen',
-                    'temp': round(sense.temperature + random.random() * 5, 1),
+                    'temp': 20,
                 },
                 {
                     'room': 'Master Bedroom',
-                    'temp': round(sense.temperature + random.random() * 5, 1),
+                    'temp': 20,
                 },
                 {
                     'room': 'Garage',
-                    'temp': round(sense.temperature + random.random() * 5, 1),
+                    'temp': 20,
                 }
             ],
         'hum':
             [
                 {
                     'room': 'Living Room',
-                    'hum': round(sense.humidity, 1),
+                    'hum': 20,
                 },
                 {
                     'room': 'Kitchen',
-                    'hum': round(sense.humidity + random.random() * 3, 1),
+                    'hum': 20,
                 },
                 {
                     'room': 'Master Bedroom',
-                    'hum': round(sense.humidity + random.random() * 3, 1),
+                    'hum': 20,
                 },
                 {
                     'room': 'Garage',
-                    'hum': round(sense.humidity + random.random() * 3, 1),
+                    'hum': 20,
                 }
             ],
         'pressure':
             [
                 {
                     'room': 'Living Room',
-                    'pre': round(sense.pressure, 1),
+                    'pre': 20,
                 },
                 {
                     'room': 'Kitchen',
-                    'pre': round(sense.pressure + random.random() * 30, 1),
+                    'pre': 20,
                 },
                 {
                     'room': 'Master Bedroom',
-                    'pre': round(sense.pressure + random.random() * 30, 1),
+                    'pre': 20,
                 },
                 {
                     'room': 'Garage',
-                    'pre': round(sense.pressure + random.random() * 30, 1),
+                    'pre': 20,
                 }
             ],
     }
