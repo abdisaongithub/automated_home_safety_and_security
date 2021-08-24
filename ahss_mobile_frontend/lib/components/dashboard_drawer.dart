@@ -58,10 +58,10 @@ class DashboardDrawer extends StatelessWidget {
                 badge: true,
                 num: Random(0).nextInt(7),
               ),
-              DrawerItem(
-                label: 'Sensors Detail',
-                route: SensorsDetailScreen.id,
-              ),
+              // DrawerItem(
+              //   label: 'Sensors Detail',
+              //   route: SensorsDetailScreen.id,
+              // ),
               Expanded(
                 child: SizedBox(),
               ),

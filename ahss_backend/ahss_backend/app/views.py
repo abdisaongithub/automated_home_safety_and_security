@@ -1,5 +1,5 @@
-import io
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics
 import random
 from sense_emu import SenseHat
@@ -28,15 +28,11 @@ class SettingsListCreateAPIView(generics.ListCreateAPIView):
     # TODO: sort settings alphabetically
 
 
-class SettingsRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
+class SettingsRetrieveAPIView(generics.RetrieveUpdateAPIView):
     queryset = Settings.objects.all()
     serializer_class = SettingsSerializer
 
     permission_classes = (permissions.AllowAny,)
-
-
-class SettingsRetrieveAPIView(generics.RetrieveAPIView):
-    pass
 
 
 class VideosListAPIView(generics.ListAPIView):
@@ -69,7 +65,6 @@ class LogsListAPIView(generics.ListAPIView):
 
 
 sense = SenseHat()
-
 
 
 def sensorsListView(request):
@@ -136,33 +131,34 @@ def sensorsListView(request):
     return HttpResponse(json.dumps(data), status=status.HTTP_200_OK, content_type='Application/json')
 
 
-def updateSetting():
-    return response(data=json.dumps({'data': 'Sens Data'}), status=status.HTTP_200_OK, content_type='Application/json' )
+@csrf_exempt
+def updateSetting(request, pk, *args, **kwargs):
+    if request.method == 'POST':
+        setting = Settings.objects.get(pk=pk)
+        if request.POST['state']:
+            setting.state = request.POST['state']
+            setting.save()
 
+            return HttpResponse(
+                json.dumps({
+                    'id': setting.id,
+                    'name': setting.name,
+                    'state': setting.state,
+                }),
+                status=status.HTTP_200_OK,
+                content_type='application/json')
 
-def temperatureListView(request):
-    # TODO: generate different humidity here : RPi
-    pass
+        return HttpResponse(
+            json.dumps({
+                'data': 'Error',
+                'msg': 'Error',
+            }),
+            status=status.HTTP_200_OK,
+            content_type='application/json')
 
+    else:
+        HttpResponse(
+            json.dumps({'data': 'Error', 'msg': 'Method Not Allowed'}),
+            status=status.HTTP_405_METHOD_NOT_ALLOWED,
+            content_type='Application/json')
 
-def humidityListView(request):
-    # TODO: generate different humidity here : RPi
-    pass
-
-
-def infraredListView(request):
-    # TODO: generate different infrared here : RPi
-    pass
-
-
-def is_raspberrypi():
-    try:
-        with io.open('/sys/firmware/devicetree/base/model', 'r') as m:
-            if 'raspberry pi' in m.read().lower():
-                return True
-    except Exception:
-        pass
-    return False
-
-# TODO: RPi IP- 10.0.2.15
-# TODO: RPi Password: raspberry

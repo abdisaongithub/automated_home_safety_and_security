@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     # Custom Apps
     'core',
     'app',
+    'sensorWorker',
 ]
 
 MIDDLEWARE = [

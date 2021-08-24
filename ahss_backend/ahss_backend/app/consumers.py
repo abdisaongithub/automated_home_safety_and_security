@@ -6,12 +6,13 @@ class SensorConsumer(AsyncWebsocketConsumer):
     groups = ['broadcast']
 
     async def connect(self):
-
+        # Todo: check if user is authenticated and and accept connection
         await self.accept()
 
     async def disconnect(self, close_code):
         # Leave room group
-        pass
+
+        await self.disconnect()
 
     # Receive message from WebSocket
     async def receive(self, text_data):

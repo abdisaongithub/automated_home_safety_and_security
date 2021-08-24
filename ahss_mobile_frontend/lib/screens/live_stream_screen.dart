@@ -18,11 +18,10 @@ class _LiveStreamScreenState extends State<LiveStreamScreen> {
   VlcPlayerController _vlcPlayerController;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
     _vlcPlayerController = new VlcPlayerController.network(_streamUrl);
-
   }
 
   @override
@@ -31,46 +30,55 @@ class _LiveStreamScreenState extends State<LiveStreamScreen> {
       appBar: AppBar(
         title: Text(
           'LIVE STREAM',
-          style: TextStyle(color: kWhiteColor, fontSize: 20),
+          style: TextStyle(color: kWhiteColor, fontSize: 20,),
         ),
+        leading: BackButton(),
         centerTitle: true,
         backgroundColor: kPrimaryColor,
       ),
       backgroundColor: kSecondaryColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 18,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 200,
-                width: MediaQuery.of(context).size.width * 0.85,
-                decoration: BoxDecoration(
-                  color: kWhiteColor,
-                  borderRadius: BorderRadius.circular(15),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 80,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.width * 0.7,
+                  width: MediaQuery.of(context).size.width * 0.85,
+                  decoration: BoxDecoration(
+                    color: kWhiteColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: new VlcPlayer(
+                    aspectRatio: 16 / 9,
+                    controller: _vlcPlayerController,
+                    placeholder: Center(
+                      child: Container(
+                        // height: MediaQuery.of(context).size.width * 0.7,
+                        width: MediaQuery.of(context).size.width * 0.85,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
                 ),
-                child: new VlcPlayer(
-                  aspectRatio: 16/9,
-                  controller: _vlcPlayerController,
-                  placeholder: Center(child: Container(height: 200, width: MediaQuery.of(context).size.width * 0.85, color: Colors.green,)),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 18,
-          ),
-          ListView(
-            children: [
-              // TODO: List of videos previously recorded
-            ],
-          ),
-        ],
+              ],
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            ListView(
+              children: [
+                // TODO: List of videos previously recorded
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

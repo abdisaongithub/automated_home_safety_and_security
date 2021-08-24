@@ -107,9 +107,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ? _sensorsSummary.hum[0].hum.toString()
                               : 'NAN',
                           onTap: () {
-                            Navigator.pushNamed(context, SensorsDetailScreen.id,
-                                arguments: SensorDetailArguments(
-                                    name: Strings.Humidity));
+                            Navigator.pushNamed(
+                              context,
+                              SensorsDetailScreen.id,
+                              arguments: SensorDetailArguments(
+                                name: Strings.Humidity,
+                              ),
+                            );
                           },
                         ),
                       ],

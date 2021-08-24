@@ -1,19 +1,22 @@
 from django.urls import path
 from .views import (
     SettingsListCreateAPIView,
-    SettingsRetrieveUpdateAPIView,
+    SettingsRetrieveAPIView,
     VideosListAPIView,
     NotificationsListAPIView,
     CapturedImagesListAPIView,
     LogsListAPIView,
     sensorsListView,
+    updateSetting
 )
 
 urlpatterns = [
 
     path('settings/', SettingsListCreateAPIView.as_view(), name='app_settings_list'),
 
-    path('settings/<int:pk>/', SettingsRetrieveUpdateAPIView.as_view(), name='app_settings_list'),
+    path('settings/<int:pk>/', SettingsRetrieveAPIView.as_view(), name='app_settings_list'),
+
+    path('settings/update/<int:pk>/', updateSetting),
 
     path('videos/', VideosListAPIView.as_view(), name='app_videos_list'),
 
