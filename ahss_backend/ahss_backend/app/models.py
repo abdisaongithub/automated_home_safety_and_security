@@ -6,6 +6,7 @@ from django.db import models
 class Settings(models.Model):
     name = models.CharField(max_length=255)
     state = models.BooleanField(default=False)
+    display_name = models.CharField(max_length=255, default="Not Assigned")
 
     def __str__(self):
         return self.name
