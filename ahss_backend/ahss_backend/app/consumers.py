@@ -7,6 +7,7 @@ class SensorConsumer(AsyncWebsocketConsumer):
 
     async def connect(self):
         # Todo: check if user is authenticated and and accept connection
+        # Todo: sens all sensors data at first and push the rest of changes
         await self.accept()
 
     async def disconnect(self, close_code):
@@ -25,12 +26,12 @@ class SensorConsumer(AsyncWebsocketConsumer):
         }))
 
         # # Send message to room group
-        await self.channel_layer.group_send(
-            {
-                'type': 'sensors_message',
-                'message': message
-            }
-        )
+        # await self.channel_layer.group_send(
+        #     {
+        #         'type': 'sensors_message',
+        #         'message': message
+        #     }
+        # )
 
     # Receive message from room group
     async def sensor_message(self, event):

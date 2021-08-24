@@ -89,5 +89,4 @@ class Command(BaseCommand):
             print(getHumidity())
             print('\n')
 
-
 # TODO: Bring all the functions inside the command class

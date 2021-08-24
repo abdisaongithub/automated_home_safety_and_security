@@ -136,29 +136,40 @@ def updateSetting(request, pk, *args, **kwargs):
     if request.method == 'POST':
         setting = Settings.objects.get(pk=pk)
         if request.POST['state']:
-            setting.state = request.POST['state']
-            setting.save()
+            if request.POST['state'] == "True" or request.POST['state'] == "False":
+                print('it worked')
+                setting.state = request.POST['state']
+                setting.save()
 
-            return HttpResponse(
-                json.dumps({
-                    'id': setting.id,
-                    'name': setting.name,
-                    'state': setting.state,
-                }),
-                status=status.HTTP_200_OK,
-                content_type='application/json')
+                newState = True
+
+                if setting.state == 'True':
+                    newState = True
+                else:
+                    newState = False
+
+                return HttpResponse(
+                    json.dumps({
+                        'id': setting.id,
+                        'name': setting.name,
+                        'state': newState,
+                    }),
+                    status=status.HTTP_200_OK,
+                    content_type='application/json',
+                )
 
         return HttpResponse(
             json.dumps({
                 'data': 'Error',
                 'msg': 'Error',
             }),
-            status=status.HTTP_200_OK,
-            content_type='application/json')
+            status=status.HTTP_400_BAD_REQUEST,
+            content_type='application/json',
+        )
 
     else:
         HttpResponse(
             json.dumps({'data': 'Error', 'msg': 'Method Not Allowed'}),
             status=status.HTTP_405_METHOD_NOT_ALLOWED,
-            content_type='Application/json')
-
+            content_type='Application/json',
+        )
