@@ -63,8 +63,7 @@ class LogsListAPIView(generics.ListAPIView):
     permission_classes = (permissions.AllowAny,)
 
 
-
-
+# TODO: Remove this view function
 def sensorsListView(request):
     data = {
         'temps':
@@ -135,7 +134,7 @@ def updateSetting(request, pk, *args, **kwargs):
         setting = Settings.objects.get(pk=pk)
         if request.POST['state']:
             if request.POST['state'] == "True" or request.POST['state'] == "False":
-                print('it worked')
+                # print('it worked')
                 setting.state = request.POST['state']
                 setting.save()
 

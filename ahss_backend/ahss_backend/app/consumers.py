@@ -12,7 +12,6 @@ class SensorConsumer(AsyncWebsocketConsumer):
 
     async def disconnect(self, close_code):
         # Leave room group
-
         await self.disconnect()
 
     # Receive message from WebSocket

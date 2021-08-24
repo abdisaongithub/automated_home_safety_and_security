@@ -20,6 +20,7 @@ class SettingsSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
         instance.state = validated_data.get('state', instance.state)
+        instance.display_name = validated_data.get('display_name', instance.display_name)
         instance.save()
 
         return instance
