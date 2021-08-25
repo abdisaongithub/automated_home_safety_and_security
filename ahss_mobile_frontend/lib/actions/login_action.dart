@@ -21,8 +21,10 @@ class LoginInAction {
       if (response.statusCode == 200) {
         token = TokenPair.fromJson(response.toString());
         return token;
-      } else if (response.statusCode == 401) {
-        print(401.toString());
+      // }
+      // else if (response.statusCode == 401) {
+      //   token = TokenPair(access: Strings.error, refresh: Strings.error);
+      //   return token;
       } else {
         tokenError.access = Strings.error;
         print('Not Loaded');

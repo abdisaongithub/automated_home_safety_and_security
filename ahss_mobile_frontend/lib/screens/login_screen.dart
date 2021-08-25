@@ -1,5 +1,4 @@
 import 'package:ahss_mobile_frontend/actions/login_action.dart';
-import 'package:ahss_mobile_frontend/dio_client.dart';
 import 'package:ahss_mobile_frontend/models/token_pair.dart';
 import 'package:ahss_mobile_frontend/screens/dashboard_screen.dart';
 import 'package:ahss_mobile_frontend/static_files.dart';
@@ -30,16 +29,17 @@ class _LogInScreenState extends State<LogInScreen> {
   @override
   void initState() {
     super.initState();
-    // login();
+    login();
   }
 
   login() async {
-    _tokenPair = await LoginInAction.post(email: email, password: password);
+    _tokenPair = await LoginInAction.post(email: 'j@mail.com', password: '12345678');
 
     if (_tokenPair.access == Strings.error) {
 
       setState(() {
         _isLoading = false;
+        _isLoaded = false;
       });
 
       print(Strings.error);
