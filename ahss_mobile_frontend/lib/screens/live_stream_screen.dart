@@ -1,6 +1,5 @@
 import 'package:ahss_mobile_frontend/static_files.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
 class LiveStreamScreen extends StatefulWidget {
